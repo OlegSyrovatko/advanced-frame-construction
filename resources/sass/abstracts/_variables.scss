@@ -1,0 +1,55 @@
+:root {
+  --font-main: 'Montserrat', sans-serif;
+  --font-logo: 'Film P3', sans-serif;
+  --font-subhead: 'Times New Roman', sans-serif;
+
+  --color-primary: #f3c653;
+  --color-primary-dark: #c79002;
+  --color-brown: #c79002;
+
+  --color-dark: #494848;
+  --color-beige1: #5f5f5f;
+  --color-beige2: #7a7a7a;
+  --color-beige3: #828282;
+  --color-beige4: #b4b4b4;
+  --color-beige5: #bababa;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-accent-gray: #808080;
+  --color-mobile-logo: #fdfbec;
+  --color-border-social: rgba(243, 198, 83, 0.7);
+
+  --sense-background: #f0ecd6;
+  --light-background: #fffdee;
+  --dark-background: #0e0c07;
+  --overlay-background: rgba(0, 0, 0, 0.5);
+  --button-border: 2px solid #ffffff;
+
+  --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --mobile: 414px;
+  --mobile-less: 413px;
+  --tablet: 1024px;
+  --tablet-less: 1023px;
+  --desktop: 1280px;
+  --desktop-less: 1279px;
+
+  --vertical-lines-desktop: repeating-linear-gradient(
+    90deg,
+    rgba(186, 186, 186, 0.4) 1px,
+    transparent 2px,
+    transparent 302px
+  );
+  --vertical-lines-tablet: repeating-linear-gradient(
+    90deg,
+    rgba(186, 186, 186, 0.4) 1px,
+    transparent 2px,
+    transparent 234px
+  );
+  --vertical-lines-mobile: repeating-linear-gradient(
+    90deg,
+    rgba(186, 186, 186, 0.4) 1px,
+    transparent 2px,
+    transparent 134px
+  );
+}

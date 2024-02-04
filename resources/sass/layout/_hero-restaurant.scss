@@ -1,0 +1,258 @@
+.hero-restaurant {
+    
+    margin: 0 auto;
+    padding-top: 181px;
+    max-width: 1280px;
+    
+
+    background-color:var(--dark-background);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), 
+    url(../images/hero-section/hero-restaurant-mobile.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (min-device-pixel-ratio:2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+        & { background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), 
+        url(../images/hero-section/hero-restaurant-mobile@2x.jpg);
+        }
+    }
+
+    @media screen and (min-width: 780px) {
+        background-position: center top;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), 
+        url(../images/hero-section/hero-restaurant-tablet.jpg);
+
+        @media (min-device-pixel-ratio:2),
+           (min-resolution: 192dpi),
+           (min-resolution: 2dppx) {
+            & {background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), 
+             url(../images/hero-section/hero-restaurant-tablet@2x.jpg);
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px) {
+        padding-top: 188px;
+     }
+
+
+    @media screen and (min-width: 1280px) {
+        padding-top: 164px;
+        background-position: center top;
+        background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), 
+        url(../images/hero-section/hero-restaurant-desktop.jpg);
+
+        @media (min-device-pixel-ratio:2),
+           (min-resolution: 192dpi),
+           (min-resolution: 2dppx) {
+            & {background-image: linear-gradient(rgba(0, 0, 0, 0.65),rgba(0, 0, 0, 0.65)), 
+             url(../images/hero-section/hero-restaurant-desktop@2x.jpg);
+            }
+        }
+    }
+
+    
+   
+
+    &__container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center; 
+        
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        transform: translateX(19px);
+
+        font-family: var(--font-logo);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 80px;
+        line-height: 1.07;
+        letter-spacing: 0.3em;
+        color: var(--color-white);
+        text-transform: uppercase;
+        text-align: center;
+
+        @media screen and (min-width: 365px) {
+            font-size: 96px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 16px;
+            font-size: 128px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 32px;
+        }
+    }
+
+    &__title-secondary {
+        margin-bottom: 40px;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        color: var(--color-white);
+        text-align: center;
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 56px;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 64px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 113px;
+        font-family: var(--font-subhead);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 1.15;
+        letter-spacing: 0.05em;
+        color: var(--color-white);
+        text-align: center;
+        text-transform: uppercase;
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 137px;
+            font-size: 36px;
+            line-height: 1.14;
+        }
+    }
+
+    &__link-button-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 60px;
+
+        @media screen and (min-width: 1024px) {
+            justify-content: space-between;
+            margin-bottom: 28px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 64px;
+        }
+    }
+
+    &__link{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 210px;
+        
+        padding: 8px 8px 8px 11px;
+        font-family: var(--font-main);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 1.25;
+        letter-spacing: 0.01em;
+        color: #e5e5e5;
+        text-decoration: none;
+
+        border: 1px solid rgba(243, 198, 83, 0.7);
+        border-radius: 2px;
+
+        @media screen and (max-width: 1023px) {
+            position: absolute;
+            top: -120px;
+            right: 0;
+        }
+
+        @media screen and (min-width: 1024px) {
+            height: 56px;
+            padding: 8px 8px 8px 10px;
+            font-size: 16px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            gap: 10px;
+        }
+
+        
+    }
+
+    &__icon-link {
+        fill: var(--color-primary);
+    }
+
+    &__buttons-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+
+        
+        
+
+        @media screen and (min-width: 1024px) {
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            flex-direction: row;
+            gap: 60px;
+        }
+    }
+
+
+    &__socials-list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 23px;
+        margin-right: auto;
+        margin-bottom: 21px;
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 18px;
+        }
+        @media screen and (min-width: 1280px) {
+            display: none;
+        }
+        
+    }
+
+    &__socials-item {
+        width: 24px;
+        height: 24px;
+    }
+  
+    &__socials-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        color: var(--color-primary);
+        cursor: pointer;
+    }
+  
+
+    &__socials-icon {
+        fill: currentColor;
+    }
+}
+
+
+

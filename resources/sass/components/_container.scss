@@ -1,0 +1,115 @@
+.container {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: 0 auto;
+
+  @media screen and (min-width: 414px) {
+    width: var(--mobile);
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: var(--tablet);
+    padding-left: 47px;
+    padding-right: 47px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: var(--desktop);
+    padding-left: 85px;
+    padding-right: 85px;
+  }
+
+  &__lines {
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+
+      @media screen and (max-width: 1023px) {
+        background: var(--vertical-lines-mobile);
+        width: 136px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        background: var(--vertical-lines-tablet);
+        width: 468px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        background: var(--vertical-lines-desktop);
+        width: 605px;
+      }
+    }
+  }
+
+  &__lines--top {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+
+      @media screen and (max-width: 1023px) {
+        background: var(--vertical-lines-mobile);
+        width: 136px;
+      }
+
+      @media screen and (min-width: 1024px) {
+        background: var(--vertical-lines-tablet);
+        width: 468px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        background: var(--vertical-lines-desktop);
+        width: 605px;
+      }
+    }
+
+    &--footer {
+      @media screen and (max-width: 1023px) {
+        width: 59%;
+      }
+
+      @media screen and (min-width: 1024px) {
+        width: 76%;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 70.7%;
+      }
+
+      height: 100%;
+      position: absolute;
+      &::before{
+        content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 50%;
+        
+          @media screen and (max-width: 1023px) {
+            background: var(--vertical-lines-mobile);
+            width: 1%;
+          }
+        
+          @media screen and (min-width: 1024px) {
+            background: var(--vertical-lines-tablet);
+        
+          }
+        
+          @media screen and (min-width: 1280px) {
+            background: var(--vertical-lines-desktop);
+        
+          }
+      }
+    }
+  }
+}

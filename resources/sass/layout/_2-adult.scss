@@ -1,0 +1,164 @@
+.two-adult-room {
+    background-color: var(--light-background);
+
+    &__text-img-wrapper {
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            gap: 52px;
+            margin-right: 47px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            gap: 149px;
+            margin-right: 95px;
+        }
+    }
+
+    &__wrapper {
+        flex-direction: column;
+        flex: 1;
+        justify-content: center;
+        display: flex;
+    }
+
+    &__subtitle {
+        margin-bottom: 8px;
+
+        font-family: var(--font-subhead);
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 1.15;
+        color: var(--color-beige4);
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 4px;
+
+            font-size: 32px;
+        }
+    
+    }
+
+    &__name {
+        margin-bottom: 32px;
+
+        font-family: var(--font-logo);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 40px;
+        line-height: 1.07;
+        letter-spacing: 0.3em;
+        color: var(--color-dark);
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 62px;
+
+            font-size: 64px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 72px;
+        }
+    }
+
+    &__title {
+        margin-bottom: 12px;
+
+        font-family: var(--font-subhead);
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 1.16;
+        letter-spacing: 0.05em;
+        color: var(--color-black);
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 12px;
+
+            font-size: 30px;
+            line-height: 1.13;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 24px;
+
+            font-size: 32px;
+        }
+    }
+
+    &__text {
+        margin-bottom: 32px;
+
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 1.25;
+        letter-spacing: 0.02em;
+        color: var(--color-beige1);
+
+        @media screen and (max-width:1023px) {
+            margin-right: 141px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            font-size: 16px;
+        }
+    }
+
+    &__wrapper-img {
+        display: flex;
+        justify-content: end;
+
+        @media screen and (min-width: 1024px) {
+            transform: translateY(-32px);
+        }
+    }
+
+    &__bedroom-img {
+        @media screen and (min-width: 1024px) {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+    
+    }
+
+    &__swiper-button-wrapper {
+        @media screen and (min-width: 1024px) {
+            
+        }
+    }
+
+    &__btn--leftswiper-button-prev {
+        fill: black;
+    }
+
+    &__button-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding-bottom: 32px;
+    }
+}
+.swiper-button-prev.swiper-button-prev--2-adult-btn{
+    left: 233px !important;
+    @media screen and (min-width:1024px) {
+        left: 320px !important;
+    }
+    @media screen and (min-width:1280px) {
+    left: 352px !important;
+    top: 296px !important;
+    }
+}
+.swiper-button-next.swiper-button-next--2-adult-btn{
+    @media screen and (min-width:1280px) {
+        top: 296px !important;
+    }
+        
+}
+.two-adult-room__button-wrapper{
+    @media screen and (min-width:1024px) {
+        margin-top: -235px;
+        padding-bottom: 94px;
+    }
+
+}

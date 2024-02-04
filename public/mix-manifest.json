@@ -1,0 +1,18 @@
+{
+    "/js/app.js": "/js/app.js",
+    "/css/main.css": "/css/main.css",
+    "/fonts/FilmP3Bold.woff": "/fonts/FilmP3Bold.woff",
+    "/fonts/FilmP3Bold.woff2": "/fonts/FilmP3Bold.woff2",
+    "/fonts/Montserrat-Bold.woff": "/fonts/Montserrat-Bold.woff",
+    "/fonts/Montserrat-Bold.woff2": "/fonts/Montserrat-Bold.woff2",
+    "/fonts/Montserrat-Medium.woff": "/fonts/Montserrat-Medium.woff",
+    "/fonts/Montserrat-Medium.woff2": "/fonts/Montserrat-Medium.woff2",
+    "/fonts/Montserrat-Regular.woff": "/fonts/Montserrat-Regular.woff",
+    "/fonts/Montserrat-Regular.woff2": "/fonts/Montserrat-Regular.woff2",
+    "/fonts/Montserrat-SemiBold.woff": "/fonts/Montserrat-SemiBold.woff",
+    "/fonts/Montserrat-SemiBold.woff2": "/fonts/Montserrat-SemiBold.woff2",
+    "/fonts/times-new-roman-bold.woff": "/fonts/times-new-roman-bold.woff",
+    "/fonts/times-new-roman-bold.woff2": "/fonts/times-new-roman-bold.woff2",
+    "/fonts/times-new-roman.woff": "/fonts/times-new-roman.woff",
+    "/fonts/times-new-roman.woff2": "/fonts/times-new-roman.woff2"
+}

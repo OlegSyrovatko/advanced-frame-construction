@@ -1,0 +1,212 @@
+.menu {
+    background-color: #f0ecd6;
+    color: #000000;
+    padding: 32px 0;
+
+    @media screen and (min-width: 1024px) {
+        padding: 58px 0 40px 0;
+    }
+
+    @media screen and (min-width: 1280px) {
+        padding: 58px 0 60px 0;
+    }
+
+
+  &__title {
+        font-family: var(--font-subhead);
+        font-size: 32px;
+        font-weight: 700;
+        line-height: 1.15;
+        text-transform: uppercase;
+
+        margin: 0 auto;
+        margin-bottom: 32px;
+
+        @media screen and (min-width: 1024px) {
+            margin-bottom: 40px;
+        }
+    }
+
+  &__container {
+        margin: 0 auto;
+        width: 100%;
+
+        @media screen and (min-width: 414px) {
+            margin-bottom: 24px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            display: flex;
+            justify-content: center;
+            gap: 88px;
+            margin-bottom: 32px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 9px;
+            gap: 140px;
+        }
+    }
+
+  &__block-one {
+        width: 100%;
+        margin: 0 auto;
+
+        @media screen and (min-width: 1024px) {
+            width: 411px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 485px;
+        }
+
+    }
+
+  &__block-two {
+        margin: 0 auto;
+        width: 100%;
+
+        @media screen and (min-width: 1024px) {
+            width: 430px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            width: 485px;
+        }
+    }
+
+  &__table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        margin: 0 auto;
+        width: 100%;
+        margin-bottom: 8px;
+
+        @media screen and (min-width: 1024) {
+            margin-bottom: 12px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            margin-bottom: 20px;
+        }
+
+        &:last-of-type {
+            @media screen and (min-width: 1024px) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+  &__head {
+        font-family: var(--font-subhead);
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.15;
+        text-align: left;
+        padding: 0 0 16px 0;
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 20px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            font-size: 24px;
+        }
+    }
+
+  &__data {
+        font-family: var(--font-main);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+
+        padding: 0 0 4px 0;
+        width: 221px;
+
+        @media screen and (min-width: 1280px) {
+            width: 291px;
+            font-size: 16px;
+        }
+    }
+
+  &__data--padding {
+        padding-bottom: 8px;
+
+        @media screen and (min-width: 1024px) {
+            padding-bottom: 9px;
+        }
+    }
+
+  &__component {
+        font-family: var(--font-main);
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+
+        padding: 0 18px 8px 0;
+        width: 221px;
+
+        @media screen and (min-width: 1280px) {
+            width: 290px;
+            padding: 0 16px 12px 0;
+        }
+    }
+
+  &__weight {
+        font-family: var(--font-main);
+        font-size: 12px;
+        font-weight: 300;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        text-align: left;
+
+        padding: 0 0 8px 15px;
+        width: 60px;
+
+        @media screen and (min-width: 414px) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: 1024px) {
+            padding-left: 26px;
+            width: 80px;
+        }
+    }
+
+  &__weight--no-padding-left {
+        @media screen and (max-width: 1023px) {
+            padding-left: 0;
+        }
+    }
+
+  &__price {
+        font-family: var(--font-main);
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: 0.02em;
+        text-align: right;
+
+        padding: 0 0 8px 0;
+
+        @media screen and (min-width: 414px) {
+            font-size: 14px;
+        }
+
+        @media screen and (min-width: 1280px) {
+            font-size: 16px;
+        }
+    }
+
+}
+
+
+.button--black {
+    margin: 0 auto;
+
+    @media screen and (min-width: 1024px) {
+        margin: 0 0 0 auto;
+    }
+}
