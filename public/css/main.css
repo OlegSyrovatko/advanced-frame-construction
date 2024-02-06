@@ -1013,6 +1013,115 @@ ul {
   }
 }
 
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.1);
+}
+
+@media (min-width: 767px) {
+  .menu {
+    visibility: hidden;
+  }
+}
+.menu__icon {
+  fill: var(--color-beige5);
+}
+.menu__icon:hover, .menu__icon:focus {
+  fill: var(--color-white);
+}
+.menu__toggle {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 24px;
+  min-width: 16px;
+  top: 15px;
+  left: auto;
+  right: 23px;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+@media (min-width: 768px) {
+  .menu__toggle {
+    display: none;
+  }
+}
+.menu__toggle:hover, .menu__toggle:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.menu__container {
+  position: fixed;
+  overflow-y: scroll;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  padding: 48px 40px;
+  background-color: rgb(0, 0, 0);
+  z-index: 999;
+  transform: translateY(-100%);
+  transition: transform 250ms ease-in-out;
+}
+.menu__container.is-open {
+  transform: translateY(0);
+}
+.menu__container .menu__toggle {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  color: #fff;
+}
+.menu__close-button {
+  position: absolute;
+  top: 21px;
+  left: auto;
+  right: 25px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 1px solid #fff;
+}
+.menu__close-button:hover .menu__close-button-image {
+  fill: var(--color-beige5);
+}
+.menu__nav-li:not(:last-child) {
+  margin-bottom: 35px;
+}
+.menu__nav-link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.18;
+  color: #212121;
+  letter-spacing: 0.02em;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
+}
+.menu__nav-link:hover, .menu__nav-link:focus {
+  color: var(--color-sense);
+}
+.menu__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.link.menu__nav-link--current {
+  color: var(--color-sense);
+}
+
 .footer {
   background-color: var(--dark-background);
   position: relative;
@@ -1157,7 +1266,6 @@ ul {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 414px;
   padding: 10px 15px;
 }
 @media screen and (min-width: 1024px) {
@@ -1168,6 +1276,12 @@ ul {
 @media screen and (min-width: 1280px) {
   .header__container {
     max-width: 1280px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .nav {
+    visibility: hidden;
   }
 }
 

@@ -1,6 +1,14 @@
 <header class="header">
     <section class="container header__container">
         <a class="link header__logo" href="/">AFC</a>
+        <button type="button" class="menu__toggle js-open-menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+        >
+            <svg width="24" height="16" class="menu__icon">
+                <use href="./images/icons.svg#icon-menu"></use>
+            </svg>
+        </button>
         <nav class="nav">
             <ul class="nav__list ">
                 <li>
@@ -41,8 +49,6 @@
                         >
                             <use href="/images/icons.svg#icon-instagram"></use>
                         </svg>
-
-
                     </a>
                 </li>
             </ul>

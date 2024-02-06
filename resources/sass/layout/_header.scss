@@ -15,9 +15,9 @@
 .header__container {
   display: flex;
   justify-content: space-between;
-    align-items: center;
+   align-items: center;
   width: 100%;
-  max-width: 414px;
+
   padding: 10px 15px;
 
   @media screen and (min-width: 1024px) {
@@ -27,6 +27,12 @@
   @media screen and (min-width: 1280px) {
     max-width: 1280px;
   }
+}
+
+.nav {
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
 }
 
 .nav__list {

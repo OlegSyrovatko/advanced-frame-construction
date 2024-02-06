@@ -1,0 +1,123 @@
+.menu {
+  @media (min-width: 767px) {
+      display: none;
+  }
+    &__icon{
+        fill: var(--color-beige5);
+    }
+
+  &__icon:hover,
+  &__icon:focus
+  {
+    fill: var(--color-white);
+  }
+
+  &__toggle {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 24px;
+    min-width: 16px;
+
+    top: 15px;
+    left: auto;
+    right: 23px;
+    padding: 0;
+
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    outline: none;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__toggle:hover,
+  &__toggle:focus {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &__container {
+    position: fixed;
+    overflow-y: scroll;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 48px 40px;
+    background-color: rgba(0, 0, 0);
+    z-index: 999;
+
+    transform: translateY(-100%);
+    transition: transform 250ms ease-in-out;
+  }
+
+
+  &__container.is-open {
+    transform: translateY(0);
+  }
+
+  &__container &__toggle {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #fff;
+  }
+
+  &__close-button{
+    position: absolute;
+    top: 21px;
+    left: auto;
+    right: 25px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 1px solid #fff;
+  }
+
+  &__close-button:hover &__close-button-image{
+    fill:var(--color-beige5);
+  }
+
+
+  &__nav-li:not(:last-child){
+    margin-bottom: 35px;
+  }
+
+  &__nav-link{
+    text-decoration: none;
+
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 1.18;
+    color: #212121;
+    letter-spacing: 0.02em;
+
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: var(--timing-function);
+  }
+
+  &__nav-link:hover,
+  &__nav-link:focus
+  {
+    color: var(--color-sense);
+  }
+
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+}
+
+.link.menu__nav-link--current{
+  color: var(--color-sense);
+}
