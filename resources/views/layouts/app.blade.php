@@ -33,14 +33,15 @@
 
 @include("inc.messages")
 
-<div style="margin-top: 70px; display: flex; gap: 10px;">
-    <div style="width: 70%;">@yield("content")</div>
+
+@yield("content")
     <!--<div style="width: 25%;">@include("inc.aside")</div>-->
-</div>
+@include("inc.modal")</div>
 {{--@include("inc.footer") --}}
 
 
 <script type="module" src="./js/app.js"></script>
 <script src="./js/mobile-menu.js"></script>
+<script src="./js/modal.js"></script>
 </body>
 </html>
