@@ -1,6 +1,8 @@
 <header class="header">
     <section class="container header__container">
-        <a class="link header__logo" href="/">AFC</a>
+        <a class="link header__logo" href="/">
+            <img class="header__logo__img" src="/images/logo_small_negate.png" width="50" height="36" alt="Логотип Advanced Frame Construction">
+            AFC </a>
         <button type="button" class="menu__toggle js-open-menu"
                 aria-expanded="false"
                 aria-controls="mobile-menu"
@@ -54,7 +56,7 @@
             </ul>
         </nav>
         <div class="menu__container js-menu-container js-close-menu" id="mobile-menu">
-            <button type="button" class="menu__close-button" data-modal-close>
+            <button type="button" class="menu__close-button" data-close>
                 <svg width="19" height="19" class="menu__close-button-image">
                     <use href="images/icons.svg#close-blank"></use>
                 </svg>

@@ -47,7 +47,7 @@
     width: 100%;
     max-width: 414px;
     background: var(--light-background);
-    padding: 60px 15px;
+    padding: 40px 15px;
     margin: 0 auto;
     z-index: 30;
     overflow-y: auto;
@@ -56,11 +56,9 @@
 
     @media screen and (min-width: 1024px) {
         max-width: 712px;
-        padding: 60px;
+        padding: 50px;
     }
 
-    /* opacity: 0;
-  visibility: hidden; */
 
 }
 
@@ -124,7 +122,7 @@
 .form__item {
     display: flex;
     flex-wrap: wrap;
-    
+
     @media screen and (min-width: 1024px) {
         gap: 16px;
 }
@@ -141,7 +139,7 @@
      &:nth-of-type(2) {
         order: 1;
                 }
-        
+
     &:nth-of-type(4) {
         order: 3;
                 }

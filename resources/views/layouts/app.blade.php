@@ -35,8 +35,8 @@
 
 
 @yield("content")
-    <!--<div style="width: 25%;">@include("inc.aside")</div>-->
-@include("inc.modal")</div>
+
+@include("inc.modal")
 {{--@include("inc.footer") --}}
 
 

@@ -4,17 +4,22 @@
 @import './base/base';
 @import './base/buttons';
 @import './base/modal';
+@import './base/modern-normalize';
+
+
+
 
 
 @import './components/section';
 @import './components/container';
+@import './components/contact';
+@import './components/close-button';
 @import './components/hero';
 @import './components/logo';
-@import './components/modal';
 @import './components/is-hidden';
 @import './components/mobile-menu';
 @import './components/order-button';
-@import './components/backdrop';
+
 
 @import './layout/footer';
 @import './layout/header';

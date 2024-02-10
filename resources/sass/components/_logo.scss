@@ -3,32 +3,21 @@
   font-weight: 700;
   font-size: 32px;
   line-height: 1.08;
+    padding: 2px 2px 2px 10px;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-mobile-logo);
 
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    &__img{
+        box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.5);
+    }
   @media screen and (min-width: 1024px) {
     color: var(--color-white);
   }
 }
 
-.footer__logo {
-  margin-left: 0;
-
-  font-family: var(--font-main);
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 1.08;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: var(--color-primary);
-
-  @media screen and (min-width: 380px) {
-    margin-left: 29px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    margin-left: 32px;
-
-  }
-}
