@@ -2,7 +2,22 @@
     <section class="container header__container">
         <a class="link header__logo" href="/">
             <img class="header__logo__img" src="/images/logo_small_negate.png" width="50" height="36" alt="Логотип Advanced Frame Construction">
-            AFC </a>
+            AFC
+        </a>
+        <a class="tel-item" href="tel:+380684421138">
+            <svg class="smartphone" width="14" height="16">
+                <use href="./images/icons.svg#icon-smartphone"></use>
+            </svg>
+            <span>+38 068 442 1138</span>
+        </a>
+        <div class="langs">
+            @if (App::isLocale('en'))<img loading="lazy" width="22" height="14" src="/images/flag-en.png" title = "english language" alt = "english language">
+            @else <a class="enover" href="/en" title = "english language"></a>
+            @endif
+            @if (App::isLocale('ua'))<img loading="lazy" width="22" height="14" src="/images/flag-uk.gif" title = "українська мова" alt = "українська мова">
+            @else <a class="uaover" href="/ua" title = "українська мова"></a>
+            @endif
+        </div>
         <button type="button" class="menu__toggle js-open-menu"
                 aria-expanded="false"
                 aria-controls="mobile-menu"
@@ -26,7 +41,7 @@
                     <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">Каталог</a>
                 </li>
                 <li>
-                    <a @if(request()->is('projects')) class="active" @endif href="/projects">Минулі проекти</a>
+                    <a @if(request()->is('projects')) class="active" @endif href="/projects">Проекти</a>
                 </li>
                 <li>
                     <a @if(request()->is('contacts')) class="active" @endif href="/contacts">Контакти</a>
