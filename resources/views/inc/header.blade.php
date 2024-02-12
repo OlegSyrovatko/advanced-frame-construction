@@ -1,7 +1,7 @@
 <header class="header">
     <section class="container header__container">
         <a class="link header__logo" href="/">
-            <img class="header__logo__img" src="/images/logo_small_negate.png" width="50" height="36" alt="Логотип Advanced Frame Construction">
+            <img class="header__logo__img" src="/images/logo_small_negate.png" width="50" height="36" alt="{{__('messages.logo')}}">
             AFC
         </a>
         <a class="tel-item" href="tel:+380684421138">
@@ -79,19 +79,19 @@
             <nav>
                 <ul class="menu__nav__li ">
                     <li>
-                        <a @if(request()->is('/')) class="active" @endif href="/" >Головна </a>
+                        <a @if(request()->is('/')) class="active" @endif href="/" > {{__('messages.home')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('about')) class="active" @endif href="/about">Про нас</a>
+                        <a @if(request()->is('about')) class="active" @endif href="/about">{{__('messages.about-us')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('advantages')) class="active" @endif href="/advantages">Наші переваги</a>
+                        <a @if(request()->is('advantages')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">Каталог</a>
+                        <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">{{__('messages.catalogue')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('projects')) class="active" @endif href="/projects">Минулі проекти</a>
+                        <a @if(request()->is('projects')) class="active" @endif href="/projects">{{__('messages.past-projects')}}</a>
                     </li>
                     <li>
                         <a @if(request()->is('contacts')) class="active" @endif href="/contacts">Контакти</a>

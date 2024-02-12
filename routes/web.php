@@ -13,15 +13,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('index'); });
+Route::get('/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('index'); });
+
+
+Route::group(['middleware'=>'language'],function ()
+{
+        Route::get('/', function () {
+            return view('index');
+        });
+        Route::get('/about', function () {
+            return view('about');
+        });
+        Route::get('/advantages', function () {
+            return view('advantages');
+        });
+
 });
-Route::get('/about', function () {
-    return view('about');
-});
-Route::get('/advantages', function () {
-    return view('advantages');
-});
+
+
 /*
 Route::get('/catalogue', function () {
     return view('catalogue');

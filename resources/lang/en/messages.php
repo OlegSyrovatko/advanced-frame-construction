@@ -12,6 +12,41 @@
 */
 
 return [
-    'Im'       			    => 'Ім\'я',
+    'logo' => 'Advanced Frame Constraction logo',
+    'home' => 'Home',
+	'about-us' => 'About us',
+	'advantages' => 'Our advantages',
+    'catalogue' => 'Catalogue',
+	'past-projects' => 'Past projects',
+    '' => '',
+    '' => '',
+	'' => '',
+    '' => '',
+    '' => '',
+	'' => '',
+    '' => '',
+    '' => '',
+	'' => '',
+    '' => '',
+    '' => '',
+	'' => '',
+    '' => '',
+    '' => '',
+	'' => '',
+    '' => '',
+    '' => '',
+	'' => '',
+    '' => '',
+    '' => '',
+	'' => '',
+
+
+
+
+
+
+
+
+
 
 ];
