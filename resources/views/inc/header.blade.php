@@ -6,7 +6,7 @@
         </a>
         <a class="tel-item" href="tel:+380684421138">
             <svg class="smartphone" width="14" height="16">
-                <use href="./images/icons.svg#icon-smartphone"></use>
+                <use href="/images/icons.svg#icon-smartphone"></use>
             </svg>
             <span>+38 068 442 1138</span>
         </a>
@@ -23,31 +23,31 @@
                 aria-controls="mobile-menu"
         >
             <svg width="24" height="16" class="menu__icon">
-                <use href="./images/icons.svg#icon-menu"></use>
+                <use href="/images/icons.svg#icon-menu"></use>
             </svg>
         </button>
         <nav class="nav">
             <ul class="nav__list ">
                 <li>
-                    <a @if(request()->is('/')) class="active" @endif href="/" >Головна </a>
+                    <a @if(request()->is('/') || request()->is('en') || request()->is('ua')) class="active" @endif href="/" >{{__('messages.home')}} </a>
                 </li>
                 <li>
-                    <a @if(request()->is('about')) class="active" @endif href="/about">Про нас</a>
+                    <a @if(request()->is('about') || request()->is('about/en') || request()->is('about/ua')) class="active" @endif href="/about">{{__('messages.about-us')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('advantages')) class="active" @endif href="/advantages">Наші переваги</a>
+                    <a @if(request()->is('advantages') || request()->is('advantages/en') || request()->is('advantages/ua')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">Каталог</a>
+                    <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">{{__('messages.catalogue')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('projects')) class="active" @endif href="/projects">Проекти</a>
+                    <a @if(request()->is('projects')) class="active" @endif href="/projects">{{__('messages.past-projects')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('contacts')) class="active" @endif href="/contacts">Контакти</a>
+                    <a @if(request()->is('contacts')) class="active" @endif href="/contacts">{{__('messages.contacts')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('question')) class="active" @endif href="/question">Анкета</a>
+                    <a @if(request()->is('question')) class="active" @endif href="/question">{{__('messages.questionnaire')}}</a>
                 </li>
                 <li>
                     <a @if(request()->is('items')) class="active" @endif href="/items">Items</a>
@@ -60,7 +60,7 @@
                     >
                         <svg
                             class="social__icon"
-                            aria-label="Іконка Instagram"
+                            aria-label="{{__('messages.icon_insta')}}"
                             width="12"
                             height="12"
                         >
@@ -73,19 +73,19 @@
         <div class="menu__container js-menu-container js-close-menu" id="mobile-menu">
             <button type="button" class="menu__close-button" data-close>
                 <svg width="19" height="19" class="menu__close-button-image">
-                    <use href="images/icons.svg#close-blank"></use>
+                    <use href="/images/icons.svg#close-blank"></use>
                 </svg>
             </button>
             <nav>
                 <ul class="menu__nav__li ">
                     <li>
-                        <a @if(request()->is('/')) class="active" @endif href="/" > {{__('messages.home')}}</a>
+                        <a @if(request()->is('/') || request()->is('en') || request()->is('ua')) class="active" @endif href="/" >@php request()->is('/en') @endphp {{__('messages.home')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('about')) class="active" @endif href="/about">{{__('messages.about-us')}}</a>
+                        <a @if(request()->is('about') || request()->is('about/en') || request()->is('about/ua')) class="active" @endif href="/about">{{__('messages.about-us')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('advantages')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
+                        <a @if(request()->is('advantages') || request()->is('advantages/en') || request()->is('advantages/ua')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
                     </li>
                     <li>
                         <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">{{__('messages.catalogue')}}</a>
@@ -94,10 +94,10 @@
                         <a @if(request()->is('projects')) class="active" @endif href="/projects">{{__('messages.past-projects')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('contacts')) class="active" @endif href="/contacts">Контакти</a>
+                        <a @if(request()->is('contacts')) class="active" @endif href="/contacts">{{__('messages.contacts')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('question')) class="active" @endif href="/question">Анкета</a>
+                        <a @if(request()->is('question')) class="active" @endif href="/question">{{__('messages.questionnaire')}}</a>
                     </li>
                     <li>
                         <a @if(request()->is('items')) class="active" @endif href="/items">Items</a>
@@ -111,7 +111,7 @@
                         >
                             <svg
                                 class="social__icon"
-                                aria-label="Іконка Instagram"
+                                aria-label="{{__('messages.icon_insta')}}"
                                 width="14"
                                 height="14"
                             >

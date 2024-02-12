@@ -40,8 +40,8 @@
 {{--@include("inc.footer") --}}
 
 
-<script type="module" src="./js/app.js"></script>
-<script src="./js/mobile-menu.js"></script>
-<script src="./js/modal.js"></script>
+<script type="module" src="/js/app.js"></script>
+<script src="/js/mobile-menu.js"></script>
+<script src="/js/modal.js"></script>
 </body>
 </html>
