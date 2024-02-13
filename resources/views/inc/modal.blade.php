@@ -8,11 +8,12 @@
 
         <div class="contact">
             <h2 class="contact__header">{{__('messages.recall')}}</h2>
-            <form name="contact-form">
+            <form name="contact-form" action="{{ url('/subscribe') }}" method="post">
+                @csrf
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.name')}}</span>
                     <span class="contact__block">
-                        <input class="contact__input" type="text" name="contact-username" />
+                        <input class="contact__input" type="text" name="username" required/>
                         <svg class="contact__icon" width="12" height="12">
                           <use href="./images/icons.svg#icon-username"></use>
                         </svg>
@@ -21,7 +22,7 @@
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.tel')}}</span>
                     <span class="contact__block">
-                        <input class="contact__input" type="tel" name="contact-tel" />
+                        <input class="contact__input" type="tel" name="tel" required/>
                         <svg class="contact__icon" width="13" height="13">
                           <use href="./images/icons.svg#icon-tel"></use>
                         </svg>
@@ -30,7 +31,7 @@
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.house-area')}}</span>
                     <span class="contact__block">
-                        <input class="contact__input" type="number" name="contact-house" />
+                        <input class="contact__input" type="number" name="area" />
                         <svg class="contact__icon" width="13" height="13">
                           <use href="./images/icons.svg#icon-house"></use>
                         </svg>

@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\ContactController;
 
 Route::get('/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('index'); });
 Route::get('/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('index'); });
@@ -35,6 +36,7 @@ Route::group(['middleware'=>'language'],function ()
             return view('advantages');
         });
 
+        Route::post('/subscribe', [ContactController::class, 'subscribe']);
 });
 
 

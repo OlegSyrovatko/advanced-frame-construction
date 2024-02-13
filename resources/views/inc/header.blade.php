@@ -50,9 +50,6 @@
                     <a @if(request()->is('question')) class="active" @endif href="/question">{{__('messages.questionnaire')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('items')) class="active" @endif href="/items">Items</a>
-                </li>
-                <li>
                     <a
                         href="https://www.instagram.com/"
                         target="_blank"
@@ -98,9 +95,6 @@
                     </li>
                     <li>
                         <a @if(request()->is('question')) class="active" @endif href="/question">{{__('messages.questionnaire')}}</a>
-                    </li>
-                    <li>
-                        <a @if(request()->is('items')) class="active" @endif href="/items">Items</a>
                     </li>
                     <li>
                         <a
