@@ -47,9 +47,11 @@ class ContactController extends Controller
         $this->sendEmailNotification($request->input('username'), $request->input('tel') );
 
         $request->input('username'), $request->input('tel'), $request->input('area'), $request->input('comment')
-         return response()->json(['message' => 'Subscription successful']);
+
 
          */
+        $message = 'Subscription successful';
+        return response()->json(['message' => $message], 200);
     }
 
 

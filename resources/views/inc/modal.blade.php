@@ -8,12 +8,12 @@
 
         <div class="contact">
             <h2 class="contact__header">{{__('messages.recall')}}</h2>
-            <form name="contact-form" action="{{ url('/subscribe') }}" method="post">
+            <form>
                 @csrf
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.name')}}</span>
                     <span class="contact__block">
-                        <input class="contact__input" type="text" name="username" required/>
+                        <input class="contact__input" type="text" id="username" required/>
                         <svg class="contact__icon" width="12" height="12">
                           <use href="./images/icons.svg#icon-username"></use>
                         </svg>
@@ -22,7 +22,7 @@
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.tel')}}</span>
                     <span class="contact__block">
-                        <input class="contact__input" type="tel" name="tel" required/>
+                        <input class="contact__input" type="tel" id="tel" required/>
                         <svg class="contact__icon" width="13" height="13">
                           <use href="./images/icons.svg#icon-tel"></use>
                         </svg>
@@ -31,7 +31,7 @@
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.house-area')}}</span>
                     <span class="contact__block">
-                        <input class="contact__input" type="number" name="area" />
+                        <input class="contact__input" type="number" id="area" />
                         <svg class="contact__icon" width="13" height="13">
                           <use href="./images/icons.svg#icon-house"></use>
                         </svg>
@@ -39,9 +39,9 @@
                 </label>
                 <label class="contact__label">
                     <span class="contact__title">{{__('messages.comment')}}</span>
-                    <textarea class="contact__input contact__textarea" name="comment" placeholder="{{__('messages.e-text')}}"></textarea>
+                    <textarea class="contact__input contact__textarea" id="comment" placeholder="{{__('messages.e-text')}}"></textarea>
                 </label>
-                <button class="order-button" type="submit">{{__('messages.send')}}</button>
+                <button class="order-button" onclick="contact_add()">{{__('messages.send')}}</button>
             </form>
 
         </div>

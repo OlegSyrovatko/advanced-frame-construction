@@ -26,7 +26,7 @@
         href="./favicon-16x16.png"
     />
     <link rel="manifest" href="./site.webmanifest" />
-
+    @include('sweetalert::alert')
 </head>
 <body>
 @include("inc.header")
@@ -36,12 +36,16 @@
 
 @yield("content")
 
+
 @include("inc.modal")
+
+
 {{--@include("inc.footer") --}}
 
 
 <script type="module" src="/js/app.js"></script>
 <script src="/js/mobile-menu.js"></script>
 <script src="/js/modal.js"></script>
+<script src="/js/jquery-3.5.1.min.js"></script>
 </body>
 </html>

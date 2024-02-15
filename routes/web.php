@@ -36,7 +36,7 @@ Route::group(['middleware'=>'language'],function ()
             return view('advantages');
         });
 
-        Route::post('/subscribe', [ContactController::class, 'subscribe']);
+    // Route::post('/subscribe', [ContactController::class, 'subscribe'])->name('subscribe');
 });
 
 
