@@ -1,16 +1,18 @@
-(() => {
-    const refs = {
-      openModalBtn: document.querySelector("[data-modal-open]"),
-      closeModalBtn: document.querySelector("[data-modal-close]"),
-      modal: document.querySelector("[data-modal]"),
-    };
 
+
+const refs = {
+    openModalBtn: document.querySelector("[data-modal-open]"),
+    closeModalBtn: document.querySelector("[data-modal-close]"),
+    modal: document.querySelector("[data-modal]"),
+};
+
+function toggleModal() {
+    refs.modal.classList.toggle("is-hidden");
+}
+
+(() => {
     refs.openModalBtn.addEventListener("click", toggleModal);
     refs.closeModalBtn.addEventListener("click", toggleModal);
-
-    function toggleModal() {
-      refs.modal.classList.toggle("is-hidden");
-    }
   })();
 
 function contact_add() {
@@ -21,25 +23,37 @@ function contact_add() {
     var username = document.getElementById('username').value;
     var tel = document.getElementById('tel').value;
     var area = document.getElementById('area').value;
-    var area = document.getElementById('area').value;
+    var comment = document.getElementById('comment').value;
+
     var formData = {
-        username: username, tel: tel, memt: memt, 'area': area, 'comment': comment
+        username: username, tel: tel, 'area': area, 'comment': comment
     };
     $.ajax({
         type: 'POST',
-        url: '/mem_add',
+        url: '/subscribe',
         data: formData,
         cache: false,
-        success:function(data){
-            document.getElementById("memt_res").innerHTML=data;
-            var nseek = data.indexOf("avatar/s");
-            if(nseek>0){
-                var txt = document.getElementById('memt');
-                txt.value = "";
-                document.getElementById('mem_add').style.display = 'none';
-            }
+        success: function(data) {
+            toggleModal();
+            Swal.fire({
+                icon: 'success',
+                title: data.title,
+                text: data.message,
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        },
+        error: function(response) {
+            const errorData = response.responseJSON;
+
+            Swal.fire({
+                icon: 'error',
+                title: errorData.title,
+                text: errorData.error,
+            });
+
+            console.error('Error:', errorData);
         }
     });
-    document.getElementById('app_mem').innerHTML = "";
-    document.getElementById('app_mem_add').innerHTML = "";
 }
