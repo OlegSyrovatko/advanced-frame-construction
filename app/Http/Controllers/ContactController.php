@@ -38,13 +38,10 @@ class ContactController extends Controller
 
         $comment = $request['comment'] ?? "";
 
-
-
         $validator = Validator::make($request->all(), [
             'username' => 'required',
             'tel' => 'required',
         ]);
-
 
         Contact::create([
             'username' => $username,
@@ -52,8 +49,6 @@ class ContactController extends Controller
             'area' => $area,
             'comment' => $comment
         ]);
-
-
 
         $this->sendEmailNotification($username, $tel, $area, $comment);
 
@@ -69,7 +64,22 @@ class ContactController extends Controller
 
     protected function sendEmailNotification($username, $tel, $area, $comment)
     {
-       Mail::to("sirov@ukr.net")->send(new EmailNotification($username, $tel, $area, $comment));
+        Mail::to("sirov@ukr.net")->send(new EmailNotification($username, $tel, $area, $comment));
+    }
+    public function delete_contact(Request $request)
+    {
+
+        $id = $request['id'] ?? "";
+        $pwd = $request['pwd'] ?? "";
+        if($pwd == 25){
+            $contact = Contact::find($id);
+            if ($contact) {
+                $contact->delete();
+                echo "Контакт з id $id був успішно видалений.";
+            } else {
+                echo "Контакт з id $id не знайдений.";
+            }
+        }
     }
 
 }

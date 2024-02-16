@@ -23,6 +23,9 @@ Route::get('about/en', function () {session(['my_locale' => 'en']);App::setLocal
 Route::get('advantages/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('advantages'); });
 Route::get('advantages/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('advantages'); });
 
+Route::get('admafc', function () {return view('adm'); });
+Route::get('contact-list', function () {return view('contact-list'); });
+
 
 Route::group(['middleware'=>'language'],function ()
 {
@@ -37,7 +40,8 @@ Route::group(['middleware'=>'language'],function ()
         });
 
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
-    // Route::post('/subscribe', [ContactController::class, 'subscribe'])->name('subscribe');
+    Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');
+
 });
 
 

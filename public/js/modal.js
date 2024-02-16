@@ -57,3 +57,28 @@ function contact_add() {
         }
     });
 }
+
+function deleteContact(id) {
+
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')}
+    });
+    const idpwd = "pwd" + id;
+    var pwd = document.getElementById(idpwd).value;
+
+
+    var formData = {
+        id: id, pwd: pwd
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/delete_contact',
+        data: formData,
+        cache: false,
+        success: function(data) {
+            document.getElementById(id).innerHTML = data;
+        }
+    });
+
+
+}
