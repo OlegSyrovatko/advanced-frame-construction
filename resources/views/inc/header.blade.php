@@ -4,12 +4,36 @@
             <img class="header__logo__img" src="/images/logo_small_negate.png" width="50" height="36" alt="{{__('messages.logo')}}">
             AFC
         </a>
-        <a class="tel-item" href="tel:+380684421138">
-            <svg class="smartphone" width="14" height="16">
-                <use href="/images/icons.svg#icon-smartphone"></use>
-            </svg>
-            <span>+38 068 442 1138</span>
-        </a>
+        <div class="tel-item">
+            <id class="tel-menu" id="tel-menu">
+                <svg width="14" height="16">
+                    <use href="/images/icons.svg#icon-smartphone"></use>
+                </svg>
+                <span>+38 068 442 1138</span>
+                <svg width="14" height="16" id="arrow">
+                    <use href="/images/icons.svg#icon-down"></use>
+                </svg>
+            </id>
+            <div class="dropdown" id="dropdown">
+                <a href="tel:+380684421137">
+                    <svg width="14" height="16">
+                        <use href="/images/icons.svg#icon-smartphone"></use>
+                    </svg>
+                    <span>
+                        +38 068 442 1137
+                    </span>
+                </a>
+                <a href="tel:+380978160003">
+                    <svg width="14" height="16">
+                        <use href="/images/icons.svg#icon-smartphone"></use>
+                    </svg>
+                    <span>
+                        +38 097 816 0003
+                    </span>
+                </a>
+            </div>
+        </div>
+
         <div class="langs">
             @if (App::isLocale('en'))<img loading="lazy" width="22" height="14" src="/images/flag-en.png" title = "english language" alt = "english language">
             @else <a class="enover" href="/en" title = "english language"></a>
