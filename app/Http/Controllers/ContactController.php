@@ -24,7 +24,7 @@ class ContactController extends Controller
         $tel = $request['tel'] ?? "";
         $area = $request['area'] ?? "";
 
-        if(!$username && !$tel && $area <1){
+        if($username == "" || $tel == "" || $area <= 0){
 
             $title = "Помилка";
             $message = 'Перші 3 поля обов\'язкові для заповнення';
