@@ -49,14 +49,11 @@ return [
     'eco-e' => 'The house, to a large extent, is built from natural, ecological building materials and, if necessary, can be completely autonomous - using alternative power sources.',
     'clear' => 'ABSENCE OF CLUTTER',
     'clear-e' => 'The house is brought to you already ready, so there will be no construction debris and extra people on the land.',
-
-
-
-
-
-
-
-
+    'tels' => 'Telephones',
+    'label-tel' => 'Phone icon',
+    'label-arrow' => 'Arrow icon',
+    'address' => 'Address',
+    'address-e' => 'St. Shevchenko, 9, v. Khotynivka, Nizhynskyi district, Chernihiv region',
 
 
 ];

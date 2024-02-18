@@ -20,6 +20,9 @@ Route::get('/en', function () {session(['my_locale' => 'en']);App::setLocale('en
 Route::get('about/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('about'); });
 Route::get('about/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('about'); });
 
+Route::get('contacts/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('contacts'); });
+Route::get('contacts/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('contacts'); });
+
 Route::get('advantages/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('advantages'); });
 Route::get('advantages/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('advantages'); });
 
@@ -29,15 +32,18 @@ Route::get('contact-list', function () {return view('contact-list'); });
 
 Route::group(['middleware'=>'language'],function ()
 {
-        Route::get('/', function () {
-            return view('index');
-        });
-        Route::get('/about', function () {
-            return view('about');
-        });
-        Route::get('/advantages', function () {
-            return view('advantages');
-        });
+    Route::get('/', function () {
+        return view('index');
+    });
+    Route::get('/about', function () {
+        return view('about');
+    });
+    Route::get('/advantages', function () {
+        return view('advantages');
+    });
+    Route::get('/contacts', function () {
+        return view('contacts');
+    });
 
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
     Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');

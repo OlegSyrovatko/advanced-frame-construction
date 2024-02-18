@@ -6,17 +6,17 @@
         </a>
         <div class="tel-item">
             <id class="tel-menu" id="tel-menu">
-                <svg width="14" height="16">
+                <svg width="14" height="16" aria-label="{{__('messages.label-tel')}}">
                     <use href="/images/icons.svg#icon-smartphone"></use>
                 </svg>
                 <span>+38 068 442 1138</span>
-                <svg width="14" height="16" id="arrow">
+                <svg width="14" height="16" id="arrow" aria-label="{{__('messages.label-arrow')}}">
                     <use href="/images/icons.svg#icon-down"></use>
                 </svg>
             </id>
             <div class="dropdown" id="dropdown">
                 <a href="tel:+380684421137">
-                    <svg width="14" height="16">
+                    <svg width="14" height="16" aria-label="{{__('messages.label-tel')}}">
                         <use href="/images/icons.svg#icon-smartphone"></use>
                     </svg>
                     <span>
@@ -24,7 +24,7 @@
                     </span>
                 </a>
                 <a href="tel:+380978160003">
-                    <svg width="14" height="16">
+                    <svg width="14" height="16" aria-label="{{__('messages.label-tel')}}">
                         <use href="/images/icons.svg#icon-smartphone"></use>
                     </svg>
                     <span>
@@ -54,9 +54,6 @@
             <ul class="nav__list ">
                 <li>
                     <a @if(request()->is('/') || request()->is('en') || request()->is('ua')) class="active" @endif href="/" >{{__('messages.home')}} </a>
-                </li>
-                <li>
-                    <a @if(request()->is('about') || request()->is('about/en') || request()->is('about/ua')) class="active" @endif href="/about">{{__('messages.about-us')}}</a>
                 </li>
                 <li>
                     <a @if(request()->is('advantages') || request()->is('advantages/en') || request()->is('advantages/ua')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
@@ -101,9 +98,6 @@
                 <ul class="menu__nav__li ">
                     <li>
                         <a @if(request()->is('/') || request()->is('en') || request()->is('ua')) class="active" @endif href="/" >@php request()->is('/en') @endphp {{__('messages.home')}}</a>
-                    </li>
-                    <li>
-                        <a @if(request()->is('about') || request()->is('about/en') || request()->is('about/ua')) class="active" @endif href="/about">{{__('messages.about-us')}}</a>
                     </li>
                     <li>
                         <a @if(request()->is('advantages') || request()->is('advantages/en') || request()->is('advantages/ua')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
