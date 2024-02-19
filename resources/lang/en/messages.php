@@ -54,6 +54,16 @@ return [
     'label-arrow' => 'Arrow icon',
     'address' => 'Address',
     'address-e' => 'St. Shevchenko, 9, v. Khotynivka, Nizhynskyi district, Chernihiv region',
-
+    'proj-head' => 'Here you will find overviews and descriptions of the most interesting works. We specialize in crafting modular timber frame buildings, gazebos, furniture, pergolas, toilets, aviaries, swings, and fences. Our projects combine quality, aesthetics, and functionality.',
+    't1' => 'Modular Timber Frame Buildings',
+    't1-e' => 'Our team has created a series of unparalleled modular timber frame buildings that impress with their stability and stylized design. Each project is tailored to the client\'s needs and stands out for its use of the finest environmentally friendly materials.',
+    't2' => 'Gazebos and Pergolas',
+    't2-e' => 'Our gazebos and pergolas are the perfect places to relax and enjoy nature. Their high-quality construction and aesthetic design have made them popular among our clients.',
+    't3' => 'Wooden Furniture and Constructions',
+    't3-e' => 'From elegant tables and chairs to unique custom-made furniture, our wooden products give your space a distinctive charm and comfort.',
+    't4' => 'Aviaries and Swings',
+    't4-e' => 'Our aviaries and swings are the perfect addition to your garden or backyard. We design and craft them considering both aesthetic and functional aspects.',
+    't5' => 'Private Toilet Cabins',
+    't5-e' => 'Our toilets are not just functional structures but also art objects that seamlessly integrate into your space with comfort and style.',
 
 ];

@@ -26,6 +26,16 @@ Route::get('contacts/en', function () {session(['my_locale' => 'en']);App::setLo
 Route::get('advantages/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('advantages'); });
 Route::get('advantages/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('advantages'); });
 
+Route::get('projects/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('projects')->with('dir', 'all'); });
+Route::get('projects/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('projects')->with('dir', 'all'); });
+Route::get('projects/buildings', function () {return view('projects')->with('dir', 'buildings');});
+Route::get('projects/relax', function () {return view('projects')->with('dir', 'relax');});
+Route::get('projects/furniture', function () {return view('projects')->with('dir', 'furniture');});
+Route::get('projects/gardens', function () {return view('projects')->with('dir', 'gardens');});
+Route::get('projects/cabins', function () {return view('projects')->with('dir', 'cabins');});
+
+
+
 Route::get('admafc', function () {return view('adm'); });
 Route::get('contact-list', function () {return view('contact-list'); });
 
@@ -41,6 +51,9 @@ Route::group(['middleware'=>'language'],function ()
     Route::get('/advantages', function () {
         return view('advantages');
     });
+    Route::get('/projects', function () {
+        return view('projects')->with('dir', 'all');
+    });
     Route::get('/contacts', function () {
         return view('contacts');
     });
@@ -55,19 +68,9 @@ Route::group(['middleware'=>'language'],function ()
 Route::get('/catalogue', function () {
     return view('catalogue');
 });
-Route::get('/projects', function () {
-    return view('projects');
-});
-Route::get('/contacts', function () {
-    return view('contacts');
-});
+
 Route::get('/question', function () {
     return view('question');
 });
-Route::get('/', function () {
-    return view('');
-});
-Route::get('/items', function () {
-    return view('items');
-});
+
 */
