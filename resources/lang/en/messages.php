@@ -65,5 +65,10 @@ return [
     't4-e' => 'Our aviaries and swings are the perfect addition to your garden or backyard. We design and craft them considering both aesthetic and functional aspects.',
     't5' => 'Private Toilet Cabins',
     't5-e' => 'Our toilets are not just functional structures but also art objects that seamlessly integrate into your space with comfort and style.',
+    't6' => 'Children\'s playgrounds',
+    't6-e' => 'Our playgrounds are safe and exciting places for development and fun. We carefully design and build them, ensuring the highest standards of safety and quality.',
+
+
+
 
 ];

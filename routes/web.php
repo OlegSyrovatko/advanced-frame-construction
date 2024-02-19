@@ -33,11 +33,17 @@ Route::get('projects/relax', function () {return view('projects')->with('dir', '
 Route::get('projects/furniture', function () {return view('projects')->with('dir', 'furniture');});
 Route::get('projects/gardens', function () {return view('projects')->with('dir', 'gardens');});
 Route::get('projects/cabins', function () {return view('projects')->with('dir', 'cabins');});
-
-
+Route::get('projects/playgrounds', function () {return view('projects')->with('dir', 'playgrounds');});
 
 Route::get('admafc', function () {return view('adm'); });
 Route::get('contact-list', function () {return view('contact-list'); });
+Route::get('projects-adm', function () {return view('projects-adm')->with('dir', 'all'); });
+Route::get('projects-adm/buildings', function () {return view('projects-adm')->with('dir', 'buildings');});
+Route::get('projects-adm/relax', function () {return view('projects-adm')->with('dir', 'relax');});
+Route::get('projects-adm/furniture', function () {return view('projects-adm')->with('dir', 'furniture');});
+Route::get('projects-adm/gardens', function () {return view('projects-adm')->with('dir', 'gardens');});
+Route::get('projects-adm/cabins', function () {return view('projects-adm')->with('dir', 'cabins');});
+Route::get('projects-adm/playgrounds', function () {return view('projects-adm')->with('dir', 'playgrounds');});
 
 
 Route::group(['middleware'=>'language'],function ()
@@ -60,7 +66,7 @@ Route::group(['middleware'=>'language'],function ()
 
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
     Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');
-
+    Route::post('/project', 'App\Http\Controllers\ProjectController@create');
 });
 
 
