@@ -64,4 +64,50 @@
         </div>
     </section>
 
+    @php
+
+        $Allb = DB::table('projects')
+            ->select('title', 'description', 'title_en', 'description_en', 'code', 'created_at')
+            ->orderBy('created_at', 'desc')
+            ->when($dir !== 'all', function ($query) use ($dir) {
+                return $query->where('dir', $dir);
+            })
+            ->limit(11)
+            ->get();
+        $Allbn = $Allb->count();
+
+    @endphp;
+
+    @if($Allbn>0)
+       <ul style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+    @endif
+
+    @php
+        $n = 1;
+        foreach ($Allb as $Alb) {
+            if($n<11){
+                $title = $Alb->title;
+                $description = $Alb->description;
+                $title_en = $Alb->title_en;
+				$description_en = $Alb->description_en;
+                $code = $Alb->code;
+				$created_at = $Alb->created_at;
+                echo "<li style=\"margin: 0 auto;\">$code</li>";
+            }
+            $n++;
+        }
+    @endphp
+
+    @if($Allbn>0)
+        </ul>
+    @endif
+    @if($n==12)
+        <section id="next_div class=" onMouseOver=projects('{{$dir}}','2') >
+            <a href=## onclick=projects('{{$dir}}','2') rel="noopener noreferrer">
+                <h3>{{__('messages.next')}} </h3>
+            </a>
+        </section>
+    @endif
+    @endphp
+    <script async src="//www.instagram.com/embed.js"></script>
 @endsection

@@ -20,7 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('title_en');
             $table->string('description_en');
             $table->string('dir');
-            $table->string('code');
+            $table->text('code');
             $table->timestamps();
         });
     }

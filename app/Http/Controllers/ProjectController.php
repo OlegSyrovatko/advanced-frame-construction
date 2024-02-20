@@ -3,16 +3,11 @@
 namespace App\Http\Controllers;
 
 use App;
-use App\Mail\EmailVerification;
-use App\Models\Contact;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
-// use App\Mail\EmailVerification;
-//use App\Helpers\PriceHelper;
-use App\Mail\EmailNotification;
 
 
 class ProjectController extends Controller
@@ -25,17 +20,17 @@ class ProjectController extends Controller
         $description_en = $request['description_en'] ?? "";
         $dir = $request['dir'] ?? "all";
         $code = $request['code'] ?? "";
-
+        $code = str_replace("<script async src=\"//www.instagram.com/embed.js\"></script>", "", $code);
 
         if($code == "" ){
-            return "Помилка: код інстаграму обов\язковий до заповнення";
+            return "Помилка: код інстаграму обов\'язковий до заповнення";
         }
 
         $validator = Validator::make($request->all(), [
             'code' => 'required',
         ]);
 
-        Contact::create([
+        Project::create([
             'title' => $title,
             'description' => $description,
             'title_en' => $title_en,
@@ -44,22 +39,21 @@ class ProjectController extends Controller
             'code' => $code
         ]);
 
-
-        return 'Дані записані';
+        return 'Дані записані <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>';
     }
 
-    public function delete_contact(Request $request)
+    public function delete(Request $request)
     {
 
         $id = $request['id'] ?? "";
         $pwd = $request['pwd'] ?? "";
         if($pwd == 25){
-            $contact = Contact::find($id);
-            if ($contact) {
-                $contact->delete();
-                echo "Контакт з id $id був успішно видалений.";
+            $project = Project::find($id);
+            if ($project) {
+                $project->delete();
+                echo "Проект з id $id був успішно видалений.";
             } else {
-                echo "Контакт з id $id не знайдений.";
+                echo "Проект з id $id не знайдений.";
             }
         }
     }

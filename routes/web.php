@@ -66,7 +66,8 @@ Route::group(['middleware'=>'language'],function ()
 
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
     Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');
-    Route::post('/project', 'App\Http\Controllers\ProjectController@create');
+    Route::post('projects-adm', 'App\Http\Controllers\ProjectController@create');
+
 });
 
 
