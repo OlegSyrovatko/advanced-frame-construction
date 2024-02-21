@@ -58,4 +58,12 @@ class ProjectController extends Controller
         }
     }
 
+    function projects(Request $request)
+    {
+        $dir = $request['dir'];
+        $page = $request['page'];
+        echo"dir $dir page $page ";
+
+    }
+
 }
