@@ -79,7 +79,7 @@
     @endphp;
 
     @if($Allbn>0)
-       <ul style="display: flex; flex-direction: column; gap: 10px; align-items: center;">
+       <ul id="projects" class="projects">
     @endif
 
     @php
@@ -92,7 +92,7 @@
 				$description_en = $Alb->description_en;
                 $code = $Alb->code;
 				$created_at = $Alb->created_at;
-                echo "<li style=\"margin: 0 auto;\">$code</li>";
+                echo "<li>$code</li>";
             }
             $n++;
         }
@@ -102,12 +102,12 @@
         </ul>
     @endif
     @if($n==12)
-        <section id="next_div class=" onMouseOver=projects('{{$dir}}','2') >
+        <section id="next_div2" onMouseOver=projects('{{$dir}}','2') >
             <a href=## onclick=projects('{{$dir}}','2') rel="noopener noreferrer">
                 <h3>{{__('messages.next')}} </h3>
             </a>
         </section>
     @endif
-    @endphp
+
     <script async src="//www.instagram.com/embed.js"></script>
 @endsection

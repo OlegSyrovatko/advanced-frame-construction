@@ -1638,6 +1638,13 @@ a.enover:hover {
   background-color: #45a049;
 }
 
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
 .footer {
   background-color: var(--dark-background);
   position: relative;
