@@ -72,7 +72,7 @@
                 </li>
                 <li>
                     <a
-                        href="https://www.instagram.com/"
+                        href="https://www.instagram.com/p/C3psnoNtVyn/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -114,12 +114,11 @@
                     <li>
                         <a @if(request()->is('question')) class="active" @endif href="/question">{{__('messages.questionnaire')}}</a>
                     </li>
-                    <li>
+                    <li style="width: 100%; ">
                         <a
-                            href="https://www.instagram.com/"
+                            href="https://www.instagram.com/p/C3psnoNtVyn/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="soc-li"
                         >
                             <svg
                                 class="social__icon"
@@ -128,7 +127,7 @@
                                 height="14"
                             >
                                 <use href="/images/icons.svg#icon-instagram"></use>
-                            </svg> <span>Instagram</span>
+                            </svg> <span>Instagram </span>
                         </a>
                     </li>
                 </ul>

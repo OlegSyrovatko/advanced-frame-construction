@@ -1600,6 +1600,10 @@ a.enover:hover {
   margin-bottom: 10px;
 }
 
+.project-title-adm {
+  font-size: 16px;
+}
+
 .project-description {
   font-size: 16px;
 }

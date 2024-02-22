@@ -20,26 +20,55 @@ class ProjectController extends Controller
         $description_en = $request['description_en'] ?? "";
         $dir = $request['dir'] ?? "all";
         $code = $request['code'] ?? "";
-        $code = str_replace("<script async src=\"//www.instagram.com/embed.js\"></script>", "", $code);
+        $pwd = $request['pwd'] ?? "";
+        if($pwd == 25){
+            $code = str_replace("<script async src=\"//www.instagram.com/embed.js\"></script>", "", $code);
 
-        if($code == "" ){
-            return "Помилка: код інстаграму обов\'язковий до заповнення";
+            if($code == "" ){
+                return "Помилка: код інстаграму обов'язковий до заповнення";
+            }
+
+            $validator = Validator::make($request->all(), [
+                'code' => 'required',
+            ]);
+
+            Project::create([
+                'title' => $title,
+                'description' => $description,
+                'title_en' => $title_en,
+                'description_en' => $description_en,
+                'dir' => $dir,
+                'code' => $code
+            ]);
+
+            return 'Дані записані <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>';
         }
 
-        $validator = Validator::make($request->all(), [
-            'code' => 'required',
-        ]);
+    }
 
-        Project::create([
-            'title' => $title,
-            'description' => $description,
-            'title_en' => $title_en,
-            'description_en' => $description_en,
-            'dir' => $dir,
-            'code' => $code
-        ]);
+    public function update(Request $request)
+    {
 
-        return 'Дані записані <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>';
+
+        $id = $request['id'];
+        $title = $request['title'] ?? "";
+        $description = $request['description'] ?? "";
+        $title_en = $request['title_en'] ?? "";
+        $description_en = $request['description_en'] ?? "";
+        $dir = $request['dir'] ?? "all";
+        $pwd = $request['pwd'] ?? "";
+
+       if($pwd == 25 && $id>0){
+
+           Project::where('id', $id)->update([
+               'title' => $title,
+               'description' => $description,
+               'title_en' => $title_en,
+               'description_en' => $description_en,
+               'dir' => $dir,
+           ]);
+           return 'Дані оновлені <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>';
+        }
     }
 
     public function delete(Request $request)
@@ -51,13 +80,14 @@ class ProjectController extends Controller
             $project = Project::find($id);
             if ($project) {
                 $project->delete();
-                echo "Проект з id $id був успішно видалений.";
+                return 'Проект з id $id був успішно видалений. <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>';
+
             } else {
                 echo "Проект з id $id не знайдений.";
             }
         }
     }
-
+/*
     function projects(Request $request)
     {
         $dir = $request['dir'];
@@ -104,5 +134,5 @@ class ProjectController extends Controller
             }
 
     }
-
+*/
 }

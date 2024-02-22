@@ -18,68 +18,64 @@
                     <option value="cabins">Туалети</option>
                     <option value="playgrounds">Дит. майданчики</option>
                 </select>
-                <label for="code">Код з інстаграм:</label>
-                     <textarea class="project-input" name="code" id="code" rows="5" cols="33"></textarea>
+                <textarea class="project-input" name="code" rows="5" cols="33" placeholder="Код з інстаграм"></textarea>
                 <br>
-                <label class="project-label" for="title">Назва (необов'язково):</label>
-                <input class="project-input" type="text" name="title" id="title">
+                <input class="project-input" type="text" name="title" placeholder="Назва (необов'язково)" >
                 <br>
-                <label class="project-label" for="description">Опис (необов'язково):</label>
-                <input class="project-input" type="text" name="description" id="description">
+                <input class="project-input" type="text" name="description" placeholder="Опис (необов'язково)">
                 <br>
-                <label class="project-label" for="title_en">Назва (англ.) (необов'язково):</label>
-                <input class="project-input" type="text" name="title_en" id="title_en">
+                <input class="project-input" type="text" name="title_en" placeholder="Назва (англ.) (необов'язково)">
                 <br>
-                <label class="project-label" for="description_en">Опис (англ.) (необов'язково):</label>
-                <input class="project-input" type="text" name="description_en" id="description_en">
+                <input class="project-input" type="text" name="description_en" placeholder="Опис (англ.) (необов'язково)">
                 <br>
+                <input class="project-input" placeholder="пароль"  type="text" name="pwd">
                 <button class="project-button" type="submit">Додати</button>
             </form>
             <ul>
                 <li class="project-card-title">
                     <a href="/projects-adm">
-                        <h1 class="project-title">{{__('messages.past-projects')}}</h1>
+                        <h1 class="project-title-adm">{{__('messages.past-projects')}}</h1>
                     </a>
                 </li>
                 @if($dir == "all" || $dir == "buildings")
                     <li class="project-card">
                         <a href="/projects-adm/buildings">
-                            <h2 class="project-title">{{ __('messages.t1') }}</h2>
+                            <h2 class="project-title-adm">{{ __('messages.t1') }}</h2>
                         </a>
                     </li>
                 @endif
                 @if($dir == "all" || $dir == "relax")
                     <li class="project-card">
                         <a href="/projects-adm/relax">
-                            <h2 class="project-title">{{ __('messages.t2') }}</h2>
+                            <h2 class="project-title-adm">{{ __('messages.t2') }}</h2>
                         </a>
                     </li>
                 @endif
                 @if($dir == "all" || $dir == "furniture")
                     <li class="project-card">
                         <a href="/projects-adm/furniture">
-                            <h2 class="project-title">{{ __('messages.t3') }}</h2>
+                            <h2 class="project-title-adm">{{ __('messages.t3') }}</h2>
                         </a>
                     </li>
                 @endif
                 @if($dir == "all" || $dir == "gardens")
                     <li class="project-card">
                         <a href="/projects-adm/gardens">
-                            <h2 class="project-title">{{ __('messages.t4') }}</h2>
+                            <h2 class="project-title-adm">{{ __('messages.t4') }}</h2>
                         </a>
                     </li>
                 @endif
                 @if($dir == "all" || $dir == "cabins")
                     <li class="project-card">
                         <a href="/projects-adm/cabins">
-                            <h2 class="project-title">{{ __('messages.t5') }}</h2>
+                            <h2 class="project-title-adm">{{ __('messages.t5') }}</h2>
                         </a>
                     </li>
                 @endif
                 @if($dir == "all" || $dir == "playgrounds")
                     <li class="project-card">
                         <a href="/projects-adm/playgrounds">
-                            <h2 class="project-title">{{ __('messages.t6') }}</h2>
+                            <h2 class="project-title-adm">{{ __('messages.t6') }}</h2>
                         </a>
                     </li>
                 @endif
@@ -127,7 +123,7 @@
                                 $title_en = $Alb->title_en;
                                 $description_en = $Alb->description_en;
                                 $code = $Alb->code;
-                                $dir = $Alb->dir;
+                                $dirid = $Alb->dir;
                                 $created_at = $Alb->created_at;
 
                                 echo "<li>";
@@ -135,17 +131,17 @@
                                 echo"$code<br />";
                     @endphp
                     <div class="project-menu">
-                        <form id="ef{{$id}}" style="display: none;" class=action="{{ url('/projects-adm-edit') }}" method="post">
+                        <form id="ef{{$id}}" style="display: none;" action="{{ url('/projects-adm-edit') }}" method="post">
                             @csrf
-                            <input type="hidden" value="{{$id}}" type="text" name="pwd">
+                            <input type="hidden" value="{{$id}}" type="text" name="id">
                             <select class="project-input" type="dir" name="dir">
                                 <option value="all">Всі</option>
-                                <option value="buildings" @php if($dir == "buildings")echo "selected" @endphp>Будинки</option>
-                                <option value="relax" @php if($dir == "relax")echo "selected" @endphp>Альтанки і бесідки</option>
-                                <option value="furniture" @php if($dir == "furniture")echo "selected" @endphp>Меблі, фурнітура</option>
-                                <option value="gardens" @php if($dir == "gardens")echo "selected" @endphp>Качелі/Воль'єри</option>
-                                <option value="cabins" @php if($dir == "cabins")echo "selected" @endphp>Туалети</option>
-                                <option value="playgrounds" @php if($dir == "playgrounds")echo "selected" @endphp>Дит. майданчики</option>
+                                <option value="buildings" @php if($dirid == "buildings")echo "selected" @endphp>Будинки</option>
+                                <option value="relax" @php if($dirid == "relax")echo "selected" @endphp>Альтанки і бесідки</option>
+                                <option value="furniture" @php if($dirid == "furniture")echo "selected" @endphp>Меблі, фурнітура</option>
+                                <option value="gardens" @php if($dirid == "gardens")echo "selected" @endphp>Качелі/Воль'єри</option>
+                                <option value="cabins" @php if($dirid == "cabins")echo "selected" @endphp>Туалети</option>
+                                <option value="playgrounds" @php if($dirid == "playgrounds")echo "selected" @endphp>Дит. майданчики</option>
                             </select>
 
                             <input class="project-input" placeholder="Назва (необов'язково)" value="{{$title}}" type="text" name="title">
@@ -162,10 +158,10 @@
                         </form>
                         <a id="eb{{$id}}" class="project-button" onclick=edit('ef{{$id}}','eb{{$id}}','db{{$id}}')>Редагувати</a>
 
-                        <form id="db{{$id}}"  class=action="{{ url('/projects-adm-delete') }}" method="post">
+                        <form id="db{{$id}}" action="{{ url('/projects-adm-delete') }}" method="post">
                             @csrf
                             <input class="project-input-delete"  type="text" name="pwd">
-                            <input type="hidden" value="{{$id}}" type="text" name="pwd">
+                            <input type="hidden" value="{{$id}}" type="text" name="id">
                             <button class="project-button-delete" type="submit">Видалити</button>
                         </form>
                     </div>

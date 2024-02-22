@@ -81,7 +81,7 @@
                 $Allbn = $projects->count();
                 $hasNextPage = $page < $totalPages;
                 $hasPreviousPage = $page > 1;
-            @endphp;
+            @endphp
 
             @if($Allbn>0)
                 <ul class="projects">
