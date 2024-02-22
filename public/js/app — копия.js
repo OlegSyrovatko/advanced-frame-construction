@@ -16,7 +16,6 @@ window.addEventListener('scroll', function () {
   }
 });
 
-
 function projects(dir, page) {
     alert(dir); alert(page);
     var next_div = "next_div" + page;
@@ -40,7 +39,6 @@ function projects(dir, page) {
         }
     });
 }
-
 
 // Navigation arrows
 /* Swiper */

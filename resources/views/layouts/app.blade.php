@@ -30,6 +30,7 @@
     @include('sweetalert::alert')
 </head>
 <body>
+<script src="/js/app-before.js"></script>
 @include("inc.header")
 
 @include("inc.messages")
@@ -44,7 +45,7 @@
 {{--@include("inc.footer") --}}
 
 
-<script type="module" src="/js/app.js"></script>
+
 <script src="/js/mobile-menu.js"></script>
 <script src="/js/modal.js"></script>
 <script src="/js/jquery-3.5.1.min.js"></script>

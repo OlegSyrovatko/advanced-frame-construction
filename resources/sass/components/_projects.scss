@@ -96,3 +96,24 @@
     gap: 10px;
     align-items: center;
 }
+.next {
+    display: inline-block;
+    margin: 20px auto 20px;
+    padding: 15px 25px;
+    border: 2px solid var(--color-primary-dark);
+    border-radius: 4px;
+    background-color: var(--color-primary-dark);
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.next a {
+    color: #fff;
+}
+
+.next:hover {
+    background-color: var(--color-brown-light);
+}
