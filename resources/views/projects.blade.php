@@ -4,7 +4,7 @@
 @endsection
 @section("content")
     <section class="section">
-        <div class="container" style="text-align: center">
+        <div class="container">
             <ul>
                 <li class="project-card-title">
                     <a href="/projects">
@@ -62,61 +62,44 @@
                 @endif
             </ul>
 
-
             @php
-/*
-                $Allb = DB::table('projects')
-                    ->select('id','title', 'description', 'title_en', 'description_en', 'code', 'created_at')
-                    ->orderBy('created_at', 'desc')
-                    ->when($dir !== 'all', function ($query) use ($dir) {
-                        return $query->where('dir', $dir);
-                    })
-                    ->limit(10)
-                    ->get();
-*/
 
-$totalProjects = DB::table('projects')->when($dir !== 'all', function ($query) use ($dir) {
-    return $query->where('dir', $dir);
-})->count();
+                $totalProjects = DB::table('projects')->when($dir !== 'all', function ($query) use ($dir) {
+                    return $query->where('dir', $dir);
+                })->count();
+                $totalPages = ceil($totalProjects / 10);
 
-// Отримуємо загальну кількість сторінок
-$totalPages = ceil($totalProjects / 10);
-
-
-    $projects = DB::table('projects')
-    ->select('id','title', 'description', 'title_en', 'description_en', 'code', 'created_at')
-    ->orderBy('created_at', 'desc')
-    ->when($dir !== 'all', function ($query) use ($dir) {
-        return $query->where('dir', $dir);
-    })
-    ->skip(($page - 1) * 10)
-    ->take(10)
-    ->get();
+                $projects = DB::table('projects')
+                ->select('id','title', 'description', 'title_en', 'description_en', 'code', 'created_at')
+                ->orderBy('created_at', 'desc')
+                ->when($dir !== 'all', function ($query) use ($dir) {
+                    return $query->where('dir', $dir);
+                })
+                ->skip(($page - 1) * 10)
+                ->take(10)
+                ->get();
                 $Allbn = $projects->count();
-$hasNextPage = $page < $totalPages;
-$hasPreviousPage = $page > 1;
+                $hasNextPage = $page < $totalPages;
+                $hasPreviousPage = $page > 1;
             @endphp;
 
             @if($Allbn>0)
-                <ul id="projects" class="projects">
+                <ul class="projects">
                     @endif
 
                     @php
-                        $n = 1;
+
                         foreach ($projects as $Alb) {
-                            if($n<11){
-                                $id = $Alb->id;
-                                $title = $Alb->title;
-                                $description = $Alb->description;
-                                $title_en = $Alb->title_en;
-                                $description_en = $Alb->description_en;
-                                $code = $Alb->code;
-                                $created_at = $Alb->created_at;
+                            $id = $Alb->id;
+                            $title = $Alb->title;
+                            $description = $Alb->description;
+                            $title_en = $Alb->title_en;
+                            $description_en = $Alb->description_en;
+                            $code = $Alb->code;
+                            $created_at = $Alb->created_at;
 
-                                echo "<li>$code</li>";
+                            echo "<li>$code</li>";
 
-                            }
-                            $n++;
                         }
                     @endphp
 
@@ -124,17 +107,15 @@ $hasPreviousPage = $page > 1;
                 </ul>
             @endif
             @if($hasPreviousPage)
-                <a href="{{ url('projects/'.$dir.'/'.($page-1)) }}">Назад</a>
+                <a class="next" href="{{ url('projects/'.$dir.'/'.($page-1)) }}">{{ __('messages.back') }}</a>
             @endif
 
             @if($hasNextPage)
-                <a href="{{ url('projects/'.$dir.'/'.($page+1)) }}">Вперед</a>
+                <a class="next" href="{{ url('projects/'.$dir.'/'.($page+1)) }}">{{ __('messages.next') }}</a>
             @endif
-
 
         </div>
     </section>
-
 
     <script async src="//www.instagram.com/embed.js"></script>
 @endsection

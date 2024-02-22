@@ -30,16 +30,13 @@ Route::get('projects/{category?}/{page?}', function ($category = 'all', $page = 
     return view('projects')->with(['dir' => $category, 'page' => $page]);
 });
 
+
+
 Route::get('admafc', function () {return view('adm'); });
 Route::get('contact-list', function () {return view('contact-list'); });
-Route::get('projects-adm', function () {return view('projects-adm')->with(['dir' =>  'all', 'page' => 1]); });
-Route::get('projects-adm/buildings', function () {return view('projects-adm')->with('dir', 'buildings');});
-Route::get('projects-adm/relax', function () {return view('projects-adm')->with('dir', 'relax');});
-Route::get('projects-adm/furniture', function () {return view('projects-adm')->with('dir', 'furniture');});
-Route::get('projects-adm/gardens', function () {return view('projects-adm')->with('dir', 'gardens');});
-Route::get('projects-adm/cabins', function () {return view('projects-adm')->with('dir', 'cabins');});
-Route::get('projects-adm/playgrounds', function () {return view('projects-adm')->with('dir', 'playgrounds');});
-
+Route::get('projects-adm/{category?}/{page?}', function ($category = 'all', $page = 1) {
+    return view('projects-adm')->with(['dir' => $category, 'page' => $page]);
+});
 
 Route::group(['middleware'=>'language'],function ()
 {

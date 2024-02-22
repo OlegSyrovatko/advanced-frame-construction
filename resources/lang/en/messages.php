@@ -67,7 +67,8 @@ return [
     't5-e' => 'Our toilets are not just functional structures but also art objects that seamlessly integrate into your space with comfort and style.',
     't6' => 'Children\'s playgrounds',
     't6-e' => 'Our playgrounds are safe and exciting places for development and fun. We carefully design and build them, ensuring the highest standards of safety and quality.',
-    'next' => 'See next...',
+    'next' => 'Next',
+    'back' => 'Back',
 
 
 

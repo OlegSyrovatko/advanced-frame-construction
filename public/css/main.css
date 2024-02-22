@@ -885,6 +885,7 @@ summary {
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
+  text-align: center;
 }
 @media screen and (min-width: 414px) {
   .container {
@@ -1625,6 +1626,12 @@ a.enover:hover {
   box-sizing: border-box;
 }
 
+.project-input-delete {
+  width: 50px;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
 .project-button {
   background-color: #4caf50;
   color: white;
@@ -1638,6 +1645,26 @@ a.enover:hover {
   background-color: #45a049;
 }
 
+.project-button-delete {
+  background-color: #c70606;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.project-button-delete:hover {
+  background-color: #d45555;
+}
+
+.project-menu {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin: 0 auto;
+}
+
 .projects {
   display: flex;
   flex-direction: column;
@@ -1647,7 +1674,8 @@ a.enover:hover {
 
 .next {
   display: inline-block;
-  margin: 20px auto 20px;
+  margin: 20px auto 40px;
+  color: #fff;
   padding: 15px 25px;
   border: 2px solid var(--color-primary-dark);
   border-radius: 4px;
@@ -1657,10 +1685,6 @@ a.enover:hover {
   font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s;
-}
-
-.next a {
-  color: #fff;
 }
 
 .next:hover {

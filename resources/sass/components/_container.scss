@@ -3,6 +3,7 @@
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
+  text-align: center;
 
   @media screen and (min-width: 414px) {
     width: var(--mobile);
@@ -94,20 +95,20 @@
           right: 0;
           height: 100%;
           width: 50%;
-        
+
           @media screen and (max-width: 1023px) {
             background: var(--vertical-lines-mobile);
             width: 1%;
           }
-        
+
           @media screen and (min-width: 1024px) {
             background: var(--vertical-lines-tablet);
-        
+
           }
-        
+
           @media screen and (min-width: 1280px) {
             background: var(--vertical-lines-desktop);
-        
+
           }
       }
     }
