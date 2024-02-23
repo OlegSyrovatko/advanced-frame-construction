@@ -69,7 +69,8 @@ return [
     't6-e' => 'Our playgrounds are safe and exciting places for development and fun. We carefully design and build them, ensuring the highest standards of safety and quality.',
     'next' => 'Next',
     'back' => 'Back',
-
+    'proj-title' => 'Products from natural wood',
+    'proj-des' => 'High quality for the best price, warranty, service, promptness, reliable manufacturer, positive reviews',
 
 
 ];

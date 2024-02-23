@@ -97,9 +97,41 @@
                             $description_en = $Alb->description_en;
                             $code = $Alb->code;
                             $created_at = $Alb->created_at;
+                            $lan = App::currentLocale();
 
-                            echo "<li>$code</li>";
+                            if($title){
+                                $title_e = "<h2>$title</h2>";
+                            }
+                            else{
+                                $title_e = "";
+                            }
+                            if($description){
+                                $description_e = "<p>$description</p>";
+                            }
+                            else{
+                                $description_e = "";
+                            }
 
+                            if($lan == "en"){
+                                if($title_en){
+                                    $title_e = "<h2>$title_en</h2>";
+                                }
+                                else{
+                                    $title_e = "";
+                                }
+                                if($description_en){
+                                    $description_e = "<p>$description_en</p>";
+                                }
+                                else{
+                                    $description_e = "";
+                                }
+                            }
+
+                            echo "<li>
+                                $title_e
+                                $description_e
+                                $code
+                            </li>";
                         }
                     @endphp
 

@@ -7,7 +7,7 @@ window.addEventListener('scroll', function () {
     header.classList.remove('sticky');
   }
 });
-
+/*
 function projects(dir, page) {
 
     var next_div = "next_div" + page;
@@ -32,3 +32,4 @@ function projects(dir, page) {
     });
 
 }
+*/

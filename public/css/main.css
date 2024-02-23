@@ -1118,15 +1118,10 @@ summary {
   fill: var(--color-primary-dark);
 }
 .contacts__text {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.2;
   letter-spacing: 0.02em;
   color: var(--color-dark);
-}
-@media screen and (min-width: 414px) {
-  .contacts__text {
-    font-size: 14px;
-  }
 }
 @media screen and (min-width: 1024px) {
   .contacts__text {
@@ -1674,6 +1669,17 @@ a.enover:hover {
   flex-direction: column;
   gap: 10px;
   align-items: center;
+}
+
+.projects li {
+  margin: 10px 0 10px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  color: var(--color-primary-dark);
 }
 
 .next {

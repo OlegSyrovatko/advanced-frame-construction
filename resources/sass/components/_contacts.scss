@@ -55,14 +55,12 @@
     fill: var(--color-primary-dark);
   }
   &__text {
-    font-size: 10px;
+    font-size: 14px;
     line-height: 1.2;
     letter-spacing: 0.02em;
     color: var(--color-dark);
 
-    @media screen and (min-width: 414px) {
-      font-size: 14px;
-    }
+
 
     @media screen and (min-width: 1024px) {
       display: block;

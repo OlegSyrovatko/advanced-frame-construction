@@ -123,6 +123,16 @@
     gap: 10px;
     align-items: center;
 }
+.projects li{
+    margin: 10px 0 10px;
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    color: var(--color-primary-dark);
+}
 .next {
     display: inline-block;
     margin: 20px auto 40px;

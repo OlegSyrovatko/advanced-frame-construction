@@ -26,9 +26,6 @@ Route::get('contacts/en', function () {session(['my_locale' => 'en']);App::setLo
 Route::get('advantages/ua', function () {session(['my_locale' => 'ua']);App::setLocale('ua'); return view('advantages'); });
 Route::get('advantages/en', function () {session(['my_locale' => 'en']);App::setLocale('en'); return view('advantages'); });
 
-Route::get('projects/{category?}/{page?}', function ($category = 'all', $page = 1) {
-    return view('projects')->with(['dir' => $category, 'page' => $page]);
-});
 
 
 
@@ -58,6 +55,10 @@ Route::group(['middleware'=>'language'],function ()
 
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
     Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');
+
+    Route::get('projects/{category?}/{page?}', function ($category = 'all', $page = 1) {
+        return view('projects')->with(['dir' => $category, 'page' => $page]);
+    });
     Route::post('projects-adm', 'App\Http\Controllers\ProjectController@create');
     Route::post('projects-adm-delete', 'App\Http\Controllers\ProjectController@delete');
     Route::post('projects-adm-edit', 'App\Http\Controllers\ProjectController@update');
