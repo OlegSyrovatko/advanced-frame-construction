@@ -75,7 +75,7 @@ class ContactController extends Controller
             $contact = Contact::find($id);
             if ($contact) {
                 $contact->delete();
-                echo "Контакт з id $id був успішно видалений.";
+                return "Контакт з id {$id} був успішно видалений.";
             } else {
                 echo "Контакт з id $id не знайдений.";
             }

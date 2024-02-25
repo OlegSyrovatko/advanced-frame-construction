@@ -34,6 +34,15 @@ Route::get('contact-list', function () {return view('contact-list'); });
 Route::get('projects-adm/{category?}/{page?}', function ($category = 'all', $page = 1) {
     return view('projects-adm')->with(['dir' => $category, 'page' => $page]);
 });
+Route::post('projects-adm', 'App\Http\Controllers\ProjectController@create');
+Route::post('projects-adm-delete', 'App\Http\Controllers\ProjectController@delete');
+Route::post('projects-adm-edit', 'App\Http\Controllers\ProjectController@update');
+
+Route::get('works', function () { return view('works'); });
+Route::post('works', 'App\Http\Controllers\WorkController@create');
+Route::post('works-delete', 'App\Http\Controllers\WorkController@delete');
+Route::post('works-edit', 'App\Http\Controllers\WorkController@update');
+
 
 Route::group(['middleware'=>'language'],function ()
 {
@@ -46,9 +55,7 @@ Route::group(['middleware'=>'language'],function ()
     Route::get('/advantages', function () {
         return view('advantages');
     });
-    Route::get('/projects', function () {
-        return view('projects')->with(['dir' =>  'all', 'page' => 1]);
-    });
+
     Route::get('/contacts', function () {
         return view('contacts');
     });
@@ -56,13 +63,13 @@ Route::group(['middleware'=>'language'],function ()
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
     Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');
 
+    Route::get('/projects', function () {
+        return view('projects')->with(['dir' =>  'all', 'page' => 1]);
+    });
     Route::get('projects/{category?}/{page?}', function ($category = 'all', $page = 1) {
         return view('projects')->with(['dir' => $category, 'page' => $page]);
     });
-    Route::post('projects-adm', 'App\Http\Controllers\ProjectController@create');
-    Route::post('projects-adm-delete', 'App\Http\Controllers\ProjectController@delete');
-    Route::post('projects-adm-edit', 'App\Http\Controllers\ProjectController@update');
-    // Route::post('projects', 'App\Http\Controllers\ProjectController@projects');
+
 
 });
 

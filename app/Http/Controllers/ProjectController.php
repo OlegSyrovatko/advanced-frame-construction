@@ -80,7 +80,7 @@ class ProjectController extends Controller
             $project = Project::find($id);
             if ($project) {
                 $project->delete();
-                return 'Проект з id $id був успішно видалений. <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>';
+                return "Проект з id {$id} був успішно видалений. <meta http-equiv=\'refresh\' content=\'1; url=/projects-adm\'>";
 
             } else {
                 echo "Проект з id $id не знайдений.";
