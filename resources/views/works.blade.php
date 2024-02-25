@@ -33,13 +33,14 @@
 
                 $works = DB::table('works')
                 ->select('id','place','title', 'description', 'included')
-                ->orderBy('created_at', 'desc')
+                ->orderBy('included', 'desc')
+                ->orderBy('place', 'asc')
                 ->get();
 
             @endphp
 
 
-                <ul class="projects">
+                <ul class="projects" style="flex-direction: row; justify-content: center; flex-wrap: wrap;">
 
                     @php
 
@@ -49,7 +50,7 @@
                             $title = $work->title;
                             $description = $work->description;
                             $included = $work->included;
-                                echo "<li>";
+                                echo "<li style=\"width: 363px;\">";
                     @endphp
                     <div style="margin: 0; width: 300px; max-width: 300px; padding: 20px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);">
                     <form  action="{{ url('/works-edit') }}" method="post">
@@ -59,7 +60,7 @@
                         <br>
                         <input class="project-input" type="text" name="title" placeholder="Назва (обов'язково)" value="{{$title}}" >
                         <br>
-                        <textarea class="project-input" name="description" placeholder="Опис (необов'язково)" rows="7" cols="45" > {{$description}}</textarea>
+                        <textarea class="project-input" name="description" placeholder="Опис (необов'язково)" rows="7" cols="45" >{{$description}}</textarea>
                         <br>
                         <label for="included">
                             <input class="project-input" {{ $included==1 ? "checked" : "" }}  type="checkbox" name="included" id="included" style="width: 18px; height: 18px;">
