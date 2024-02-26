@@ -62,7 +62,6 @@ class WorkController extends Controller
 
     public function delete(Request $request)
     {
-
         $id = $request['id'] ?? "";
         $pwd = $request['pwd'] ?? "";
         if($pwd == 25){
@@ -75,6 +74,36 @@ class WorkController extends Controller
                 echo "Проект з id {$id} не знайдений.";
             }
         }
+    }
+
+    public function updateOrder(Request $request)
+    {
+
+
+        $workId = $request->input('workId');
+        $newIndex = $request->input('newIndex');
+        $included = $request->input('included');
+
+        echo "workId $workId newIndex $newIndex included $included";
+
+
+        $updatedWork = Work::find($workId);
+
+        if ($updatedWork) {
+            $updatedWork->place = $newIndex;
+            $updatedWork->save();
+        }
+
+
+        $sortedWorks = Work::orderBy('included', 'desc')
+            ->orderBy('place', 'asc')
+            ->get()
+            ->sortBy(function ($work) {
+                return $work->included . $work->place;
+            });
+
+        return response()->json(['success' => true, 'message' => 'Order updated successfully', 'works' => $sortedWorks]);
+
     }
 
 }
