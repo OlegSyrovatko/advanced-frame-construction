@@ -78,20 +78,17 @@ class WorkController extends Controller
 
     public function updateOrder(Request $request)
     {
+        $newOrder = $request['newOrder'];
 
 
-        $workId = $request->input('workId');
-        $newIndex = $request->input('newIndex');
-        $included = $request->input('included');
 
-        echo "workId $workId newIndex $newIndex included $included";
+        foreach ($newOrder as $workId => $newIndex) {
+            $updatedWork = Work::find($workId);
 
-
-        $updatedWork = Work::find($workId);
-
-        if ($updatedWork) {
-            $updatedWork->place = $newIndex;
-            $updatedWork->save();
+            if ($updatedWork) {
+                $updatedWork->place = $newIndex;
+                $updatedWork->save();
+            }
         }
 
 
@@ -103,6 +100,8 @@ class WorkController extends Controller
             });
 
         return response()->json(['success' => true, 'message' => 'Order updated successfully', 'works' => $sortedWorks]);
+
+
 
     }
 

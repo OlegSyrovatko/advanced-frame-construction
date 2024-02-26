@@ -65,6 +65,37 @@
             const sortable = new Sortable(list, {
                 animation: 150,
                 onUpdate: function (event) {
+                        const itemEl = event.item;
+
+                        // Отримайте всі нові позиції у вигляді об'єкта { workId: newIndex }
+                        const newOrder = {};
+                        Array.from(list.children).forEach((item, index) => {
+                            const workId = item.dataset.workId;
+                            newOrder[workId] = index + 1;
+                        });
+                    var formData = {
+                        newOrder: newOrder,
+                    };
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/update-order',
+                        data: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        cache: false,
+                        success: function success(data) {
+                            console.log(data);
+                        }
+                    });
+
+                }
+            });
+            /*
+            const sortable = new Sortable(list, {
+                animation: 150,
+                onUpdate: function (event) {
                     const itemEl = event.item;
                     const newIndex = event.newIndex;
                     const workId = itemEl.dataset.workId;
@@ -91,6 +122,7 @@
                     });
                 }
             });
+            */
             const sortable2 = new Sortable(list2, {
                 animation: 150,
                 onUpdate: function (event) {
