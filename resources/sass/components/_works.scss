@@ -1,3 +1,48 @@
+.work-input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+}
+.work-input-delete {
+    width: 50px;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+.work-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.work-button:hover {
+    background-color: #45a049;
+}
+.work-button-delete {
+    background-color: #c70606;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-button-delete:hover {
+    background-color: #d45555;
+}
+
+
+.work-form {
+    max-width: 300px;
+    margin: 80px auto;
+}
+
+/*
+
 .projects-title {
     font-size: 28px;
     font-weight: 900;
@@ -58,52 +103,13 @@
     font-size: 16px;
 }
 
-.project-form {
-    max-width: 300px;
-    margin: 80px auto;
-}
+
 
 .project-label {
     display: block;
     margin-bottom: 8px;
 }
 
-.project-input {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    box-sizing: border-box;
-}
-.project-input-delete {
-    width: 50px;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-.project-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.project-button:hover {
-    background-color: #45a049;
-}
-.project-button-delete {
-    background-color: #c70606;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.project-button-delete:hover {
-    background-color: #d45555;
-}
 
 .project-menu{
     display: flex;
@@ -147,3 +153,4 @@
 .next:hover {
     background-color: var(--color-brown-light);
 }
+*/

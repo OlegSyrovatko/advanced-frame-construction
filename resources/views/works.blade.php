@@ -7,21 +7,18 @@
     <section class="section">
         <div class="container">
 
-            <form class="project-form" action="{{ url('/works') }}" method="post">
+            <form class="work-form" action="{{ url('/works') }}" method="post">
                 @csrf
-                <label for="place">Місце в переліку, чим менше, тим вище</label>
-                <input class="project-input" type="number" name="place" id="place">
+                <input class="work-input" type="text" name="title" placeholder="Назва (обов'язково)" >
                 <br>
-                <input class="project-input" type="text" name="title" placeholder="Назва (обов'язково)" >
-                <br>
-                <textarea class="project-input" name="description" placeholder="Опис (необов'язково)" rows="9" cols="40" ></textarea>
+                <textarea class="work-input" name="description" placeholder="Опис (необов'язково)" rows="9" cols="40" ></textarea>
                 <br>
                 <label for="included">
-                    <input class="project-input" checked type="checkbox" name="included" id="included" style="width: 18px; height: 18px;">
+                    <input class="work-input" checked type="checkbox" name="included" id="included" style="width: 18px; height: 18px;">
                     включено в ціну по замовчуванню
                 </label>
-                <input class="project-input" placeholder="пароль"  type="text" name="pwd">
-                <button class="project-button" type="submit">Додати</button>
+                <input class="work-input" placeholder="пароль"  type="text" name="pwd">
+                <button class="work-button" type="submit">Додати</button>
             </form>
             @php
                 $works = DB::table('works')

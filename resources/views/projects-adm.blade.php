@@ -6,7 +6,7 @@
     <section class="section">
         <div class="container">
 
-            <form class="project-form" action="{{ url('/projects-adm') }}" method="post">
+            <form class="project-form" style="" action="{{ url('/projects-adm') }}" method="post">
                 @csrf
                 <label class="project-label" for="dir">Розділ:</label>
                 <select class="project-input" type="dir" name="dir" id="dir">
