@@ -51,6 +51,7 @@
                     </div>
                 @endforeach
             </div>
+            <br><br><br><br>
         </div>
     </section>
 
@@ -64,7 +65,6 @@
                 onUpdate: function (event) {
                         const itemEl = event.item;
 
-                        // Отримайте всі нові позиції у вигляді об'єкта { workId: newIndex }
                         const newOrder = {};
                         Array.from(list.children).forEach((item, index) => {
                             const workId = item.dataset.workId;
@@ -89,6 +89,52 @@
 
                 }
             });
+            /*
+            const sortable2 = new Sortable(list2, {
+                animation: 150,
+                onUpdate: function (event) {
+                    const itemEl2 = event.item;
+                    const newIndex2 = event.newIndex;
+                    const workId2 = itemEl2.dataset.workId2;
+                    console.log('Updated2: ' + workId2 + ', New Index2: ' + newIndex2);
+                    // Add your AJAX logic here to update the server with the new order
+                }
+            });
+            */
+            const sortable2 = new Sortable(list2, {
+                animation: 150,
+                onUpdate: function (event) {
+                    const itemEl2 = event.item;
+                    const newIndex2 = event.newIndex;
+                    const workId2 = itemEl2.dataset.workId2;
+
+                    // Отримайте всі нові позиції у вигляді об'єкта { workId: newIndex }
+                    const newOrder2 = {};
+                    Array.from(list.children).forEach((item, index) => {
+                        const workId2 = item.dataset.workId;
+                        newOrder2[workId2] = index + 1;
+                    });
+                    var formData = {
+                        newOrder: newOrder2,
+                    };
+
+                    $.ajax({
+                        type: 'POST',
+                        url: '/update-order',
+                        data: formData,
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        cache: false,
+                        success: function success(data) {
+                            console.log(data);
+                        }
+                    });
+
+                }
+            });
+
+
             /*
             const sortable = new Sortable(list, {
                 animation: 150,
@@ -120,16 +166,10 @@
                 }
             });
             */
-            const sortable2 = new Sortable(list2, {
-                animation: 150,
-                onUpdate: function (event) {
-                    const itemEl2 = event.item;
-                    const newIndex2 = event.newIndex;
-                    const workId2 = itemEl2.dataset.workId2;
-                    console.log('Updated2: ' + workId2 + ', New Index2: ' + newIndex2);
-                    // Add your AJAX logic here to update the server with the new order
-                }
-            });
+
+
+
+
         });
     </script>
 @endsection

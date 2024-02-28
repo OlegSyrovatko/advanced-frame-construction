@@ -16,14 +16,22 @@ class WorkController extends Controller
     {
         $title = $request['title'] ?? "";
         $description = $request['description'] ?? "";
-        $place = $request['place'] ?? "";
         $included = $request->has('included');
 
         $pwd = $request['pwd'] ?? "";
         if($pwd == 25){
 
-            if($place == "" || $title  == ""){
-                return "Перші 2 поля обов'язкові до заповнення <meta http-equiv='refresh' content='1; url=/works'>";
+            if($title  == ""){
+                return "Поле назва обов'язкове до заповнення <meta http-equiv='refresh' content='1; url=/works'>";
+            }
+
+            $maxPlaceIncluded = Work::where('included', 1)->max('place');
+            $maxPlaceExcluded = Work::where('included', 0)->max('place');
+
+            if ($included == 1) {
+                $place = $maxPlaceIncluded + 1;
+            } else {
+                $place = $maxPlaceExcluded + 1;
             }
 
             Work::create([
@@ -32,7 +40,6 @@ class WorkController extends Controller
                 'place' => $place,
                 'included' => $included,
             ]);
-
             return 'Дані записані <meta http-equiv=\'refresh\' content=\'1; url=/works\'>';
         }
 
@@ -79,8 +86,6 @@ class WorkController extends Controller
     public function updateOrder(Request $request)
     {
         $newOrder = $request['newOrder'];
-
-
 
         foreach ($newOrder as $workId => $newIndex) {
             $updatedWork = Work::find($workId);
