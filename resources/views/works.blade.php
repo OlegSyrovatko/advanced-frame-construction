@@ -22,35 +22,80 @@
             </form>
             @php
                 $works = DB::table('works')
-                ->select('id','place','title', 'description', 'included')
+                ->select('id','title', 'description', 'included')
                 ->where('included', 1)
                 ->orderBy('place', 'asc')
                 ->get();
             @endphp
 
-            <div id="sortable-list" class="projects" style="flex-direction: row; justify-content: center; flex-wrap: wrap;">
+            <ul id="sortable-list" class="works" style="">
                 @foreach ($works as $work)
-                    <div data-work-id="{{ $work->id }}" style="width: 363px;">
-                        {{ $work->title }}
-                    </div>
+                    <li data-work-id="{{ $work->id }}">
+                        <form  action="{{ url('/works-edit') }}" method="post">
+                            @csrf
+                            <input type="hidden" value="{{$work->id}}" type="text" name="id">
+
+                            <input class="work-input" type="text" name="title" placeholder="Назва (обов'язково)" value="{{$work->title}}" >
+                            <br>
+                            <textarea class="work-input" name="description" placeholder="Опис (необов'язково)" rows="7" cols="45" >{{$work->description}}</textarea>
+                            <br>
+                            <label for="included">
+                                <input class="work-input" {{ $work->included==1 ? "checked" : "" }}  type="checkbox" name="included" id="included" style="width: 18px; height: 18px;">
+                                включено в ціну
+                            </label>
+
+                            <input class="work-input-delete" type="text" name="pwd">
+                            <button class="work-button" type="submit">Змінити</button>
+                        </form>
+
+                        <form id="db{{$work->id}}" action="{{ url('/works-delete') }}" method="post">
+                            @csrf
+                            <input class="work-input-delete"  type="text" name="pwd">
+                            <input type="hidden" value="{{$work->id}}" type="text" name="id">
+                            <button class="work-button-delete" type="submit">Видалити</button>
+                        </form>
+
+                        <br>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
             <br><br><br><br>
             @php
                 $works = DB::table('works')
-                ->select('id','place','title', 'description', 'included')
+                ->select('id','title', 'description', 'included')
                 ->where('included', 0)
                 ->orderBy('place', 'asc')
                 ->get();
             @endphp
 
-            <div id="sortable-list2" class="projects" style="flex-direction: row; justify-content: center; flex-wrap: wrap;">
+            <ul id="sortable-list2" class="works">
                 @foreach ($works as $work)
-                    <div data-work-id2="{{ $work->id }}" style="width: 363px;">
-                        {{ $work->title }}
-                    </div>
+                    <li data-work-id2="{{ $work->id }}">
+                        <form  action="{{ url('/works-edit') }}" method="post">
+                            @csrf
+                            <input type="hidden" value="{{$work->id}}" type="text" name="id">
+
+                            <input class="work-input" type="text" name="title" placeholder="Назва (обов'язково)" value="{{$work->title}}" >
+                            <br>
+                            <textarea class="work-input" name="description" placeholder="Опис (необов'язково)" rows="7" cols="45" >{{$work->description}}</textarea>
+                            <br>
+                            <label for="included">
+                                <input class="work-input" {{ $work->included==1 ? "checked" : "" }}  type="checkbox" name="included" id="included" style="width: 18px; height: 18px;">
+                                включено в ціну
+                            </label>
+
+                            <input class="work-input-delete" type="text" name="pwd">
+                            <button class="work-button" type="submit">Змінити</button>
+                        </form>
+                        <form id="db{{$work->id}}" action="{{ url('/works-delete') }}" method="post">
+                            @csrf
+                            <input class="work-input-delete"  type="text" name="pwd">
+                            <input type="hidden" value="{{$work->id}}" type="text" name="id">
+                            <button class="work-button-delete" type="submit">Видалити</button>
+                        </form>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
             <br><br><br><br>
         </div>
     </section>
@@ -81,37 +126,22 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        cache: false,
-                        success: function success(data) {
-                            console.log(data);
-                        }
+                        cache: false
                     });
 
                 }
             });
-            /*
+
             const sortable2 = new Sortable(list2, {
                 animation: 150,
-                onUpdate: function (event) {
-                    const itemEl2 = event.item;
-                    const newIndex2 = event.newIndex;
-                    const workId2 = itemEl2.dataset.workId2;
-                    console.log('Updated2: ' + workId2 + ', New Index2: ' + newIndex2);
-                    // Add your AJAX logic here to update the server with the new order
-                }
-            });
-            */
-            const sortable2 = new Sortable(list2, {
-                animation: 150,
-                onUpdate: function (event) {
-                    const itemEl2 = event.item;
-                    const newIndex2 = event.newIndex;
+                onUpdate: function (e) {
+                    const itemEl2 = e.item;
+                    const newIndex2 = e.newIndex;
                     const workId2 = itemEl2.dataset.workId2;
 
-                    // Отримайте всі нові позиції у вигляді об'єкта { workId: newIndex }
                     const newOrder2 = {};
-                    Array.from(list.children).forEach((item, index) => {
-                        const workId2 = item.dataset.workId;
+                    Array.from(list2.children).forEach((item, index) => {
+                        const workId2 = item.dataset.workId2;
                         newOrder2[workId2] = index + 1;
                     });
                     var formData = {
@@ -125,10 +155,7 @@
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                         },
-                        cache: false,
-                        success: function success(data) {
-                            console.log(data);
-                        }
+                        cache: false
                     });
 
                 }

@@ -51,7 +51,6 @@ class WorkController extends Controller
         $id = $request['id'];
         $title = $request['title'] ?? "";
         $description = $request['description'] ?? "";
-        $place = $request['place'] ?? "";
         $included = $request->has('included');
         $pwd = $request['pwd'] ?? "";
 
@@ -60,7 +59,6 @@ class WorkController extends Controller
            Work::where('id', $id)->update([
                'title' => $title,
                'description' => $description,
-               'place' => $place,
                'included' => $included,
            ]);
            return 'Дані оновлені <meta http-equiv=\'refresh\' content=\'1; url=/works\'>';
@@ -87,6 +85,7 @@ class WorkController extends Controller
     {
         $newOrder = $request['newOrder'];
 
+
         foreach ($newOrder as $workId => $newIndex) {
             $updatedWork = Work::find($workId);
 
@@ -104,9 +103,8 @@ class WorkController extends Controller
                 return $work->included . $work->place;
             });
 
+
         return response()->json(['success' => true, 'message' => 'Order updated successfully', 'works' => $sortedWorks]);
-
-
 
     }
 
