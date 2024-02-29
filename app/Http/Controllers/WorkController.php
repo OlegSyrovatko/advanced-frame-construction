@@ -85,7 +85,6 @@ class WorkController extends Controller
     {
         $newOrder = $request['newOrder'];
 
-
         foreach ($newOrder as $workId => $newIndex) {
             $updatedWork = Work::find($workId);
 
@@ -94,7 +93,6 @@ class WorkController extends Controller
                 $updatedWork->save();
             }
         }
-
 
         $sortedWorks = Work::orderBy('included', 'desc')
             ->orderBy('place', 'asc')

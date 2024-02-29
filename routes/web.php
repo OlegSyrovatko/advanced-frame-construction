@@ -42,7 +42,7 @@ Route::get('works', function () { return view('works'); });
 Route::post('works', 'App\Http\Controllers\WorkController@create');
 Route::post('works-delete', 'App\Http\Controllers\WorkController@delete');
 Route::post('works-edit', 'App\Http\Controllers\WorkController@update');
-Route::post('/update-order', 'App\Http\Controllers\WorkController@updateOrder');
+Route::post('/works-update-order', 'App\Http\Controllers\WorkController@updateOrder');
 
 Route::group(['middleware'=>'language'],function ()
 {

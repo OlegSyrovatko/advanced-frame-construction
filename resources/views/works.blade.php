@@ -121,7 +121,7 @@
 
                     $.ajax({
                         type: 'POST',
-                        url: '/update-order',
+                        url: '/works-update-order',
                         data: formData,
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -150,7 +150,7 @@
 
                     $.ajax({
                         type: 'POST',
-                        url: '/update-order',
+                        url: '/works-update-order',
                         data: formData,
                         headers: {
                             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -160,42 +160,6 @@
 
                 }
             });
-
-
-            /*
-            const sortable = new Sortable(list, {
-                animation: 150,
-                onUpdate: function (event) {
-                    const itemEl = event.item;
-                    const newIndex = event.newIndex;
-                    const workId = itemEl.dataset.workId;
-                    console.log('Updated: ' + workId + ', New Index: ' + newIndex);
-                    // Add your AJAX logic here to update the server with the new order
-                    $.ajaxSetup({
-                        headers: {
-                            'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-                        }
-                    });
-                    var formData = {
-                        workId: workId,
-                        newIndex: newIndex,
-                        included: 0,
-                    };
-                    $.ajax({
-                        type: 'POST',
-                        url: '/update-order',
-                        data: formData,
-                        cache: false,
-                        success: function success(data) {
-                            console.log(data);
-                        }
-                    });
-                }
-            });
-            */
-
-
-
 
         });
     </script>
