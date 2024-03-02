@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\House;
 use App\Models\HousePhoto;
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
+
 
 class HouseController extends Controller
 {
@@ -27,14 +30,37 @@ class HouseController extends Controller
 
         $house = House::create($data);
 
-        foreach ($request->file('photos') as $photo) {
-            $path = $photo->store('house_photos');
+        if ($request->hasFile('cover_photo')) {
+            $coverPhoto = $request->file('cover_photo');
+            $coverFileName = uniqid('cover_', true) . '.' . $coverPhoto->getClientOriginalExtension();
+            $coverPath = 'house_photos/' . $coverFileName;
 
-            $isCover = ($request->has('cover_photo') && $request->file('cover_photo')->getClientOriginalName() == $photo->getClientOriginalName());
+            // Save the original cover photo
+            Storage::put($coverPath, file_get_contents($coverPhoto));
+
+            // Save the resized versions
+            $this->saveResizedImage($coverPhoto, 'cover_', $coverPath, [300, 150]);
+
+            $house->photos()->create([
+                'photo_path' => $coverPath,
+                'is_cover' => true,
+            ]);
+        }
+
+// Save other photos
+        foreach ($request->file('photos') as $photo) {
+            $fileName = uniqid('other_', true) . '.' . $photo->getClientOriginalExtension();
+            $path = 'house_photos/' . $fileName;
+
+            // Save the original other photo
+            Storage::put($path, file_get_contents($photo));
+
+            // Save the resized versions
+            $this->saveResizedImage($photo, 'other_', $path, [300, 150]);
 
             $house->photos()->create([
                 'photo_path' => $path,
-                'is_cover' => $isCover,
+                'is_cover' => false,
             ]);
         }
 
@@ -43,4 +69,20 @@ class HouseController extends Controller
 
     }
 
+    private function saveResizedImage($originalImage, $prefix, $path, $widths)
+    {
+        $image = Image::make($originalImage);
+
+        foreach ($widths as $width) {
+            // Generate a unique filename for the resized image
+            $resizedFileName = uniqid($prefix, true) . '_' . $width . '.' . $originalImage->getClientOriginalExtension();
+            $resizedPath = 'house_photos/' . $resizedFileName;
+
+            // Calculate the proportional height based on the original aspect ratio
+            $height = intval($image->height() * ($width / $image->width()));
+
+            // Save the resized image
+            Storage::put($resizedPath, $image->resize($width, $height)->encode());
+        }
+    }
 }

@@ -8,7 +8,7 @@
             <br /><br /><br /><br /><br />
             <h1><a href="/admafc">Головне меню</a></h1><br />
             @if(session('success'))
-                {{ session('success')  }}
+                <b style="color: #4caf50">{{ session('success')  }}</b>
             @endif
             <form class="house-form" action="{{ route('houses-store') }}" method="post" enctype="multipart/form-data">
                 @csrf
