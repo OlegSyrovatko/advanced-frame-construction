@@ -44,6 +44,14 @@ Route::post('works-delete', 'App\Http\Controllers\WorkController@delete');
 Route::post('works-edit', 'App\Http\Controllers\WorkController@update');
 Route::post('/works-update-order', 'App\Http\Controllers\WorkController@updateOrder');
 
+
+Route::get('houses-adm', function () { return view('houses-adm'); })->name('houses-adm');;
+Route::post('/houses', 'App\Http\Controllers\HouseController@store')->name('houses-store');
+
+
+
+
+
 Route::group(['middleware'=>'language'],function ()
 {
     Route::get('/', function () {

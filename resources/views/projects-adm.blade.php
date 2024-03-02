@@ -5,7 +5,8 @@
 @section("content")
     <section class="section">
         <div class="container">
-
+            <br /><br /><br /><br /><br />
+            <h1><a href="/admafc">Головне меню</a></h1><br />
             <form class="project-form" style="" action="{{ url('/projects-adm') }}" method="post">
                 @csrf
                 <label class="project-label" for="dir">Розділ:</label>

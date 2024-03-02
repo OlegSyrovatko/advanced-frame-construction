@@ -1605,7 +1605,7 @@ a.enover:hover {
 
 .project-form {
   max-width: 300px;
-  margin: 80px auto;
+  margin: 20px auto;
 }
 
 .project-label {
@@ -1764,7 +1764,7 @@ a.enover:hover {
 
 .work-form {
   max-width: 300px;
-  margin: 80px auto;
+  margin: 20px auto;
   background: var(--color-border-social);
   padding: 15px 10px;
   border: 1px solid #ccc;
@@ -1772,6 +1772,86 @@ a.enover:hover {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+.house-form {
+  max-width: 400px;
+  margin: 30px auto;
+  background: var(--color-border-social);
+  padding: 15px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.house-input {
+  width: 100%;
+  padding: 6px;
+  margin-bottom: 12px;
+  box-sizing: border-box;
+}
+
+.house-button {
+  background-color: #4caf50;
+  color: white;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.house-button:hover {
+  background-color: #45a049;
+}
+
+/*
+.works{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: var(--color-white);
+    border: 1px solid var(--color-border-social);
+    padding: 20px 0;
+}
+
+.works li{
+    margin: 5px 0 5px;
+    width: 265px;
+    max-width: 265px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    background: var(--color-border-social);
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.work-input-delete {
+    width: 35px;
+    padding: 6px;
+    box-sizing: border-box;
+}
+
+
+.work-button-delete {
+    background-color: #c70606;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.project-button-delete:hover {
+    background-color: #d45555;
+}
+
+*/
 .footer {
   background-color: var(--dark-background);
   position: relative;

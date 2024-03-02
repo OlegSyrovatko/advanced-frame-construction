@@ -8,7 +8,8 @@
 
     <div class="container">
 
-
+        <br /><br /><br /><br /><br />
+        <h1><a href="/admafc">Головне меню</a></h1><br />
 
     @php
         $Alls = DB::table('contacts')->select('id', 'username', 'tel', 'area', 'comment', 'created_at')->
@@ -16,7 +17,7 @@
         get();
         $nra = $Alls->count();
         if($nra>0 ){
-            echo"<div class=\"advantage-card-title\">
+            echo"<div class=\"advantage-card-title\"  style=\"margin-top: 20px;\">
                     <h1>Список контактів</h1>
                 </div>";
                 foreach ($Alls as $All) {

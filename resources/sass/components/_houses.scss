@@ -1,3 +1,36 @@
+
+
+.house-form {
+    max-width: 400px;
+    margin: 30px auto;
+    background: var(--color-border-social);
+    padding: 15px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.house-input {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 12px;
+    box-sizing: border-box;
+}
+
+
+.house-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.house-button:hover {
+    background-color: #45a049;
+}
+/*
 .works{
     display: flex;
     gap: 10px;
@@ -25,30 +58,14 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.work-input {
-    width: 100%;
-    padding: 6px;
-    margin-bottom: 12px;
-    box-sizing: border-box;
-}
+
 .work-input-delete {
     width: 35px;
     padding: 6px;
     box-sizing: border-box;
 }
 
-.work-button {
-    background-color: #4caf50;
-    color: white;
-    padding: 8px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
-.work-button:hover {
-    background-color: #45a049;
-}
 .work-button-delete {
     background-color: #c70606;
     color: white;
@@ -62,14 +79,4 @@
     background-color: #d45555;
 }
 
-
-.work-form {
-    max-width: 300px;
-    margin: 20px auto;
-    background: var(--color-border-social);
-    padding: 15px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
+*/

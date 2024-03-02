@@ -7,9 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-    protected $fillable = ['title', 'works', 'price', 'other_works',  'description', 'cover'];
+    protected $fillable = ['title', 'description', 'area', 'price', 'works', 'other_works'];
+
     public function photos()
     {
-        return $this->hasMany(ListingPhoto::class);
+        return $this->hasMany(HousePhoto::class);
+    }
+
+    public function coverPhoto()
+    {
+        return $this->photos()->where('is_cover', true)->first();
     }
 }

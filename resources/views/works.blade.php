@@ -6,7 +6,8 @@
 
     <section class="section">
         <div class="container">
-
+            <br /><br /><br /><br /><br />
+            <h1><a href="/admafc">Головне меню</a></h1><br />
             <form class="work-form" action="{{ url('/works') }}" method="post">
                 @csrf
                 <input class="work-input" type="text" name="title" placeholder="Назва (обов'язково)" >
