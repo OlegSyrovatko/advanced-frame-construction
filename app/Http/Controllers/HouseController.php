@@ -8,7 +8,7 @@ use App\Models\HousePhoto;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\DB;
 
 class HouseController extends Controller
 {
@@ -24,49 +24,97 @@ class HouseController extends Controller
         $data['area'] = $request->input('area', 0);
         $data['price'] = $request->input('price', 0);
         $data['description'] = $request->input('description', 'default_description');
+        $pwd = $request['pwd'] ?? "";
+        if($pwd == 25){
 
-        $data['works'] = $request->input('works', 'default_value_for_works');
-        $data['other_works'] = $request->input('other_works', 'default_value_for_other_works');
+            $data['works'] = "";
+            $works = DB::table('works')
+            ->select('id','title', 'description')
+            ->orderBy('place', 'asc')
+            ->where('included', 1)
+            ->get();
+            $worksn = $works->count();
+            if ($worksn>0){
+                $data['works'] = "<table>";
+                foreach ($works as $work) {
+                    $id = $work->id;
+                    $idin = "in$id";
+                    $title = $work->title;
+                    $description = $work->description;
+                    if($request->input($idin)){
+                        $data['works'].="<tr><td>$title</td><td>$description</td></tr>";
+                    }
+                }
+                $data['works'].="</table>";
+            }
 
-        $house = House::create($data);
 
-        if ($request->hasFile('cover_photo')) {
-            $coverPhoto = $request->file('cover_photo');
-            $coverFileName = uniqid('cover_', true) . '.' . $coverPhoto->getClientOriginalExtension();
-            $coverPath = 'house_photos/' . $coverFileName;
 
-            // Save the original cover photo
-            Storage::put($coverPath, file_get_contents($coverPhoto));
+            $data['other_works'] = "";
+            $works = DB::table('works')
+            ->select('id','title')
+            ->orderBy('place', 'asc')
+            ->where('included', 0)
+            ->get();
+            $worksn = $works->count();
+            if($worksn>0){
+                $data['other_works'] = "<table>";
+                foreach ($works as $work) {
+                    $id = $work->id;
+                    $idout = "out$id";
+                    $pout = "pout$id";
+                    $title = $work->title;
 
-            // Save the resized versions
-            $this->saveResizedImage($coverPhoto, 'cover_', $coverPath, [300, 150]);
+                    if($request->input($idout)){
+                        $other_price = $request->input($pout);
+                        $data['other_works'].="<tr><td>$title</td><td>$other_price</td></tr>";
+                    }
+                }
+                $data['other_works'].="</table>";
+            }
 
-            $house->photos()->create([
-                'photo_path' => $coverPath,
-                'is_cover' => true,
-            ]);
+
+            $house = House::create($data);
+
+            if ($request->hasFile('cover_photo')) {
+                $coverPhoto = $request->file('cover_photo');
+                $coverFileName = uniqid('cover_', true) . '.' . $coverPhoto->getClientOriginalExtension();
+                $coverPath = 'house_photos/' . $coverFileName;
+
+                // Save the original cover photo
+                Storage::put($coverPath, file_get_contents($coverPhoto));
+
+                // Save the resized versions
+                $this->saveResizedImage($coverPhoto, 'cover_', $coverPath, [300, 150]);
+
+                $house->photos()->create([
+                    'photo_path' => $coverPath,
+                    'is_cover' => true,
+                ]);
+            }
+
+            // Save other photos
+            if ($request->hasFile('photos')) {
+                foreach ($request->file('photos') as $photo) {
+                    $fileName = uniqid('other_', true) . '.' . $photo->getClientOriginalExtension();
+                    $path = 'house_photos/' . $fileName;
+
+                    // Save the original other photo
+                    Storage::put($path, file_get_contents($photo));
+
+                    // Save the resized versions
+                    $this->saveResizedImage($photo, 'other_', $path, [300, 150]);
+
+                    $house->photos()->create([
+                        'photo_path' => $path,
+                        'is_cover' => false,
+                    ]);
+                }
+            }
+
+            return redirect()->route('houses-adm')->with('success', 'Будинок та фотографії успішно додані.');
+
         }
-
-// Save other photos
-        foreach ($request->file('photos') as $photo) {
-            $fileName = uniqid('other_', true) . '.' . $photo->getClientOriginalExtension();
-            $path = 'house_photos/' . $fileName;
-
-            // Save the original other photo
-            Storage::put($path, file_get_contents($photo));
-
-            // Save the resized versions
-            $this->saveResizedImage($photo, 'other_', $path, [300, 150]);
-
-            $house->photos()->create([
-                'photo_path' => $path,
-                'is_cover' => false,
-            ]);
-        }
-
-        return redirect()->route('houses-adm')->with('success', 'Будинок та фотографії успішно додані.');
-
-
     }
 
     private function saveResizedImage($originalImage, $prefix, $path, $widths)

@@ -13,7 +13,7 @@
                 <select class="project-input" type="dir" name="dir" id="dir">
                     <option value="all">Всі</option>
                     <option value="buildings">Будинки</option>
-                    <option value="relax">Альтанки і бесідки</option>
+                    <option value="relax">Альтанки</option>
                     <option value="furniture">Меблі, фурнітура</option>
                     <option value="gardens">Качелі/Воль'єри</option>
                     <option value="cabins">Туалети</option>
@@ -138,7 +138,7 @@
                             <select class="project-input" type="dir" name="dir">
                                 <option value="all">Всі</option>
                                 <option value="buildings" @php if($dirid == "buildings")echo "selected" @endphp>Будинки</option>
-                                <option value="relax" @php if($dirid == "relax")echo "selected" @endphp>Альтанки і бесідки</option>
+                                <option value="relax" @php if($dirid == "relax")echo "selected" @endphp>Альтанки</option>
                                 <option value="furniture" @php if($dirid == "furniture")echo "selected" @endphp>Меблі, фурнітура</option>
                                 <option value="gardens" @php if($dirid == "gardens")echo "selected" @endphp>Качелі/Воль'єри</option>
                                 <option value="cabins" @php if($dirid == "cabins")echo "selected" @endphp>Туалети</option>
