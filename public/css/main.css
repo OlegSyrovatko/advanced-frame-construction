@@ -1802,33 +1802,34 @@ a.enover:hover {
   background-color: #45a049;
 }
 
-/*
-.works{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    background: var(--color-white);
-    border: 1px solid var(--color-border-social);
-    padding: 20px 0;
+#houses {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  background: var(--color-white);
+  border: 1px solid var(--color-border-social);
+  padding: 20px 0;
 }
 
-.works li{
-    margin: 5px 0 5px;
-    width: 265px;
-    max-width: 265px;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-    align-items: center;
-    background: var(--color-border-social);
-    padding: 15px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+#houses li {
+  width: 265px;
+  max-width: 265px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  background: var(--color-border-social);
+  padding: 15px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/*
 
 
 .work-input-delete {

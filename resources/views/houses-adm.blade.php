@@ -87,9 +87,27 @@
                 <input class="work-input-delete" type="text" name="pwd">
                 <button class="house-button" type="submit">Додати</button>
             </form>
+            @php
+                $houses = DB::table('houses')
+                ->select('id','title', 'area', 'price')
+                ->orderBy('price', 'asc')
+                ->get();
+                $housesn = $houses->count();
+                if($housesn>0){
+                    echo"<ul id=\"houses\">";
+                }
 
-
-
+                foreach ($houses as $house) {
+                    $id = $house->id;
+                    $title = $house->title;
+                    $area = $house->area;
+                    $price = $house->price;
+                    echo"<li> <b>$title</b><br> $area м2 <br> $price грн. </li>";
+                }
+                if($housesn>0){
+                    echo"</ul>";
+                }
+            @endphp
         </div>
     </section>
 @endsection

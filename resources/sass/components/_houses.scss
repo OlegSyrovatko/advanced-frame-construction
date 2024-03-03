@@ -30,8 +30,9 @@
 .house-button:hover {
     background-color: #45a049;
 }
-/*
-.works{
+
+#houses{
+    margin-top: 20px;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -43,8 +44,7 @@
     padding: 20px 0;
 }
 
-.works li{
-    margin: 5px 0 5px;
+#houses li{
     width: 265px;
     max-width: 265px;
     display: flex;
@@ -57,6 +57,8 @@
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
+/*
 
 
 .work-input-delete {
