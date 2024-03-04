@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class HousePhoto extends Model
 {
-    protected $fillable = ['photo_path', 'is_cover'];
+    protected $fillable = ['photo_path', 'is_cover', 'width'];
 
     public function house()
     {

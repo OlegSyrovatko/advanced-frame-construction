@@ -1,6 +1,6 @@
 @extends("layouts/app")
 @section("title")
-    Адміністрування
+    Адміністрування - будинки
 @endsection
 @section("content")
     <section class="section">
@@ -36,6 +36,7 @@
                         $id = $work->id;
                         $title = $work->title;
                         $description = $work->description;
+
                         $rows=1;
                         $deslen=strlen($description);
                         if($deslen>50){$rows=2;}
@@ -102,7 +103,40 @@
                     $title = $house->title;
                     $area = $house->area;
                     $price = $house->price;
-                    echo"<li> <b>$title</b><br> $area м2 <br> $price грн. </li>";
+
+                     $covers = DB::table('house_photos')
+                        ->select('photo_path','width')
+                        ->where('is_cover', 1)
+                        ->where('house_id', $id)
+                        ->where(function ($query) {
+                            $query->where('width', 150)
+                                  ->orWhere('width', 300);
+                        })
+                        ->get();
+                        $fscover="";
+                        $fbcover="";
+                        foreach ($covers as $cover) {
+                            $photo_path = $cover->photo_path;
+                            $width = $cover->width;
+                            if($width==150){$fscover=$photo_path;}
+                            if($width==300){$fbcover=$photo_path;}
+                        }
+
+                    echo"<li> <b>$title</b><br>";
+                    @endphp
+                     @if ($covers->count() > 0)
+                    <img
+                        srcset="{{ asset(url('storage/' . $fscover)) }} 1x, {{ asset(url('storage/' . $fbcover)) }} 2x"
+                        sizes="(max-width: 600px) 150px, 300px"
+                        src="{{ asset(url('storage/' . $fscover)) }}"
+                        alt="Image Description"
+                    >
+
+                    @else
+                        <p>No cover photos found.</p>
+                    @endif
+                    @php
+                    echo"$area  м2 <br> $price грн. </li>";
                 }
                 if($housesn>0){
                     echo"</ul>";

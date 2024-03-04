@@ -82,10 +82,10 @@ class HouseController extends Controller
                 $coverPath = 'house_photos/' . $coverFileName;
 
                 // Save the original cover photo
-                Storage::put($coverPath, file_get_contents($coverPhoto));
+                Storage::disk('public')->put($coverPath, file_get_contents($coverPhoto));
 
                 // Save the resized versions
-                $this->saveResizedImage($coverPhoto, 'cover_', $coverPath, [300, 150]);
+                $this->saveResizedImage($house, $coverPhoto, 'cover_', $coverPath, [300, 150]);
 
                 $house->photos()->create([
                     'photo_path' => $coverPath,
@@ -100,10 +100,10 @@ class HouseController extends Controller
                     $path = 'house_photos/' . $fileName;
 
                     // Save the original other photo
-                    Storage::put($path, file_get_contents($photo));
+                    Storage::disk('public')->put($path, file_get_contents($photo));
 
                     // Save the resized versions
-                    $this->saveResizedImage($photo, 'other_', $path, [300, 150]);
+                    $this->saveResizedImage($house, $photo, 'other_', $path, [300, 150]);
 
                     $house->photos()->create([
                         'photo_path' => $path,
@@ -117,20 +117,27 @@ class HouseController extends Controller
         }
     }
 
-    private function saveResizedImage($originalImage, $prefix, $path, $widths)
+    private function saveResizedImage($house, $originalImage, $prefix, $path, $widths)
     {
         $image = Image::make($originalImage);
 
         foreach ($widths as $width) {
             // Generate a unique filename for the resized image
             $resizedFileName = uniqid($prefix, true) . '_' . $width . '.' . $originalImage->getClientOriginalExtension();
-            $resizedPath = 'house_photos/' . $resizedFileName;
+            $resizedPath = 'house_photos/' . $resizedFileName;  // Змінено шлях
 
             // Calculate the proportional height based on the original aspect ratio
             $height = intval($image->height() * ($width / $image->width()));
 
             // Save the resized image
-            Storage::put($resizedPath, $image->resize($width, $height)->encode());
+            Storage::disk('public')->put($resizedPath, $image->resize($width, $height)->encode());  // Вказано диск 'public'
+
+            // Save the width information to the database
+            $house->photos()->create([
+                'photo_path' => 'public/' . $resizedPath,  // Змінено шлях
+                'is_cover' => $prefix === 'cover_', // Adjust accordingly
+                'width' => $width,
+            ]);
         }
     }
 }
