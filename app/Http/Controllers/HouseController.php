@@ -84,7 +84,6 @@ class HouseController extends Controller
                 // Save the original cover photo
                 Storage::disk('public')->put($coverPath, file_get_contents($coverPhoto));
 
-                // Save the resized versions
                 $this->saveResizedImage($house, $coverPhoto, 'cover_', $coverPath, [300, 150]);
 
                 $house->photos()->create([
@@ -99,10 +98,8 @@ class HouseController extends Controller
                     $fileName = uniqid('other_', true) . '.' . $photo->getClientOriginalExtension();
                     $path = 'house_photos/' . $fileName;
 
-                    // Save the original other photo
                     Storage::disk('public')->put($path, file_get_contents($photo));
 
-                    // Save the resized versions
                     $this->saveResizedImage($house, $photo, 'other_', $path, [300, 150]);
 
                     $house->photos()->create([
@@ -122,19 +119,15 @@ class HouseController extends Controller
         $image = Image::make($originalImage);
 
         foreach ($widths as $width) {
-            // Generate a unique filename for the resized image
             $resizedFileName = uniqid($prefix, true) . '_' . $width . '.' . $originalImage->getClientOriginalExtension();
             $resizedPath = 'house_photos/' . $resizedFileName;  // Змінено шлях
 
-            // Calculate the proportional height based on the original aspect ratio
             $height = intval($image->height() * ($width / $image->width()));
 
-            // Save the resized image
-            Storage::disk('public')->put($resizedPath, $image->resize($width, $height)->encode());  // Вказано диск 'public'
+            Storage::disk('public')->put($resizedPath, $image->resize($width, $height)->encode());
 
-            // Save the width information to the database
             $house->photos()->create([
-                'photo_path' => 'public/' . $resizedPath,  // Змінено шлях
+                'photo_path' =>  $resizedPath,
                 'is_cover' => $prefix === 'cover_', // Adjust accordingly
                 'width' => $width,
             ]);
