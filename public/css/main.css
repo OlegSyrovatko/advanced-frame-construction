@@ -882,26 +882,19 @@ summary {
 
 .container {
   position: relative;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 0 auto;
   text-align: center;
 }
-@media screen and (min-width: 414px) {
-  .container {
-    width: var(--mobile);
-  }
-}
 @media screen and (min-width: 1024px) {
   .container {
-    width: var(--tablet);
     padding-left: 47px;
     padding-right: 47px;
   }
 }
 @media screen and (min-width: 1280px) {
   .container {
-    width: var(--desktop);
     padding-left: 85px;
     padding-right: 85px;
   }
@@ -1806,27 +1799,51 @@ a.enover:hover {
   margin-top: 20px;
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  background: var(--color-white);
-  border: 1px solid var(--color-border-social);
-  padding: 20px 0;
 }
 
-#houses li {
-  width: 265px;
-  max-width: 265px;
+.card {
   display: flex;
   flex-direction: column;
+  width: 175px;
+  max-width: 175px;
+  padding: 10px;
   gap: 5px;
   align-items: center;
   background: var(--color-border-social);
-  padding: 15px 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 1024px) {
+  .card {
+    width: 195px;
+    max-width: 195px;
+    padding: 20px 10px;
+  }
+}
+
+.img-card {
+  margin: 10px 0 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.53);
+}
+
+.opt {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.opt li {
+  padding: 5px 10px !important;
+  color: var(--color-primary-dark);
+  font-size: 12px;
+  border-radius: 3px;
+  background-color: var(--color-white) !important;
 }
 
 /*

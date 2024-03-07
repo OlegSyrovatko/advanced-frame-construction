@@ -130,10 +130,10 @@
                             if($width==300){$fbcover=$photo_path;}
                         }
 
-                    echo"<li> <b>$title</b><br>";
+                    echo"<li class=\"card\"> <b>$title</b>";
                     @endphp
                      @if ($covers->count() > 0)
-                    <img
+                    <img class="img-card"
                         srcset="{{ asset(url('storage/' . $fscover)) }} 1x, {{ asset(url('storage/' . $fbcover)) }} 2x"
                         sizes="(max-width: 600px) 150px, 300px"
                         src="{{ asset(url('storage/' . $fscover)) }}"
@@ -144,12 +144,12 @@
                         <p>No cover photos found.</p>
                     @endif
                     @php
-                    echo"<ul
+                    echo"<ul class=\"opt\">
                             <li>" . __('messages.house-area') . ": $area м2</li>
                             <li>" . __('messages.rooms') . ": $rooms  </li>
                             <li>" . __('messages.floors') . ": $floors  </li>
-                            <li> " . __('messages.price') . " $price " . __('messages.uah') . ".</li>
-                         <ul>
+                            <li> " . __('messages.price') . ": $price " . __('messages.uah') . ".</li>
+                         </ul>
                     </li>";
                 }
                 if($housesn>0){

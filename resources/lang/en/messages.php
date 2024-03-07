@@ -74,5 +74,5 @@ return [
     'rooms' => 'Rooms',
     'floors' => 'Floors',
     'uah' => 'uah',
-    'price' => 'price',
+    'price' => 'Price',
 ];

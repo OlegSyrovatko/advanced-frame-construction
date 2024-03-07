@@ -1,22 +1,22 @@
 .container {
   position: relative;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
   margin: 0 auto;
   text-align: center;
 
   @media screen and (min-width: 414px) {
-    width: var(--mobile);
+   // width: var(--mobile);
   }
 
   @media screen and (min-width: 1024px) {
-    width: var(--tablet);
+  //  width: var(--tablet);
     padding-left: 47px;
     padding-right: 47px;
   }
 
   @media screen and (min-width: 1280px) {
-    width: var(--desktop);
+  //  width: var(--desktop);
     padding-left: 85px;
     padding-right: 85px;
   }
