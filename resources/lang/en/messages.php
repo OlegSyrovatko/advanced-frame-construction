@@ -71,6 +71,8 @@ return [
     'back' => 'Back',
     'proj-title' => 'Products from natural wood',
     'proj-des' => 'High quality for the best price, warranty, service, promptness, reliable manufacturer, positive reviews',
-
-
+    'rooms' => 'Rooms',
+    'floors' => 'Floors',
+    'uah' => 'uah',
+    'price' => 'price',
 ];

@@ -24,8 +24,12 @@ class HouseController extends Controller
         $data['area'] = $request->input('area', 0);
         $data['price'] = $request->input('price', 0);
         $data['description'] = $request->input('description', 'default_description');
+        $rooms = $request['rooms'] ?? 1;
+        $floors = $request['floors'] ?? 1;
         $pwd = $request['pwd'] ?? "";
         if($pwd == 25){
+            $data['rooms'] = $rooms;
+            $data['floors'] = $floors;
 
             $data['works'] = "";
             $works = DB::table('works')

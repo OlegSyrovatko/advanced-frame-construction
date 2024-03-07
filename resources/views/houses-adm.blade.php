@@ -25,6 +25,12 @@
 
                 <label for="area"><b>Площа:</b></label>
                 <input class="house-input" type="number" step="0.01" name="area" id="area" required>
+                <label for="rooms"><b>Кімнат:</b></label>
+                <input class="house-input" type="number"  name="rooms" id="rooms" required value="1">
+                <label for="floors"><b>Поверхів:</b></label>
+                <input class="house-input" type="number" step="0.5" name="floors" id="floors" required value="1">
+
+
                 @php
                     $works = DB::table('works')
                     ->select('id','title', 'description')
@@ -90,7 +96,7 @@
             </form>
             @php
                 $houses = DB::table('houses')
-                ->select('id','title', 'area', 'price')
+                ->select('id','title', 'area', 'price', 'floors', 'rooms')
                 ->orderBy('price', 'asc')
                 ->get();
                 $housesn = $houses->count();
@@ -103,6 +109,8 @@
                     $title = $house->title;
                     $area = $house->area;
                     $price = $house->price;
+                    $floors = $house->floors;
+                    $rooms = $house->rooms;
 
                      $covers = DB::table('house_photos')
                         ->select('photo_path','width')
@@ -136,7 +144,13 @@
                         <p>No cover photos found.</p>
                     @endif
                     @php
-                    echo"$area  м2 <br> $price грн. </li>";
+                    echo"<ul
+                            <li>" . __('messages.house-area') . ": $area м2</li>
+                            <li>" . __('messages.rooms') . ": $rooms  </li>
+                            <li>" . __('messages.floors') . ": $floors  </li>
+                            <li> " . __('messages.price') . " $price " . __('messages.uah') . ".</li>
+                         <ul>
+                    </li>";
                 }
                 if($housesn>0){
                     echo"</ul>";

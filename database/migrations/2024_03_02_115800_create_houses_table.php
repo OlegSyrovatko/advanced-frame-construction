@@ -15,6 +15,8 @@ class CreateHousesTable extends Migration
             $table->text('description');
             $table->unsignedInteger('area')->default(0);
             $table->unsignedInteger('price')->default(0);
+            $table->unsignedInteger('rooms')->default(1);
+            $table->decimal('floors', 3, 1)->unsigned()->default(1);
             $table->text('works');
             $table->text('other_works');
             $table->timestamps();
