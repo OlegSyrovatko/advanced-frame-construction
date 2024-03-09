@@ -73,6 +73,10 @@ return [
     'proj-des' => 'High quality for the best price, warranty, service, promptness, reliable manufacturer, positive reviews',
     'rooms' => 'Rooms',
     'floors' => 'Floors',
+    'rooms2' => 'Rooms',
+    'floors2' => 'Floors',
     'uah' => 'uah',
     'price' => 'Price',
+    'houses' => 'Catalogue - houses',
+    'are' => 'Area',
 ];

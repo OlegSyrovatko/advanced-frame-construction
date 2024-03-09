@@ -59,7 +59,7 @@
                     <a @if(request()->is('advantages') || request()->is('advantages/en') || request()->is('advantages/ua')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
                 </li>
                 <li>
-                    <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">{{__('messages.catalogue')}}</a>
+                    <a @if(request()->is('houses')) class="active" @endif href="/houses">{{__('messages.catalogue')}}</a>
                 </li>
                 <li>
                     <a @if(request()->is('projects')) class="active" @endif href="/projects">{{__('messages.past-projects')}}</a>
@@ -103,7 +103,7 @@
                         <a @if(request()->is('advantages') || request()->is('advantages/en') || request()->is('advantages/ua')) class="active" @endif href="/advantages">{{__('messages.advantages')}}</a>
                     </li>
                     <li>
-                        <a @if(request()->is('catalogue')) class="active" @endif href="/catalogue">{{__('messages.catalogue')}}</a>
+                        <a @if(request()->is('houses')) class="active" @endif href="/houses">{{__('messages.catalogue')}}</a>
                     </li>
                     <li>
                         <a @if(request()->is('projects')) class="active" @endif href="/projects">{{__('messages.past-projects')}}</a>

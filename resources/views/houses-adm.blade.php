@@ -130,7 +130,7 @@
                             if($width==300){$fbcover=$photo_path;}
                         }
 
-                    echo"<li class=\"card\"> <b>$title</b>";
+                    echo"<li class=\"card\" ><a href=\"/\"> <b>$title</b>";
                     @endphp
                      @if ($covers->count() > 0)
                     <img class="img-card"
@@ -150,7 +150,7 @@
                             <li>" . __('messages.floors') . ": $floors  </li>
                             <li> " . __('messages.price') . ": $price " . __('messages.uah') . ".</li>
                          </ul>
-                    </li>";
+                    </a></li>";
                 }
                 if($housesn>0){
                     echo"</ul>";

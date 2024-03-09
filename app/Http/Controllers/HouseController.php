@@ -137,4 +137,11 @@ class HouseController extends Controller
             ]);
         }
     }
+
+
+    public function updateHouse(Request $request)
+    {
+        $contact = new House;
+        return view('update-house', ['data' => $contact->find($id)]);
+    }
 }

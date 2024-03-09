@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --font-main: "Montserrat", sans-serif;
   --font-logo: "Film P3", sans-serif;
@@ -1805,6 +1806,11 @@ a.enover:hover {
   flex-wrap: wrap;
 }
 
+#houses a {
+  color: var(--color-dark);
+  text-decoration: none;
+}
+
 .card {
   display: flex;
   flex-direction: column;
@@ -1817,6 +1823,7 @@ a.enover:hover {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
 }
 @media (min-width: 1024px) {
   .card {
@@ -1826,8 +1833,80 @@ a.enover:hover {
   }
 }
 
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-ranges {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 175px;
+  max-width: 175px;
+  padding: 20px 10px 40px;
+  background: var(--color-white);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+@media (min-width: 1024px) {
+  .card-ranges {
+    width: 195px;
+    max-width: 195px;
+  }
+}
+
+#range-slider1, #range-slider2, #range-slider3, #range-slider4 {
+  height: 9px;
+  margin-top: 5px;
+}
+
+#range-slider1 .noUi-handle,
+#range-slider2 .noUi-handle,
+#range-slider3 .noUi-handle,
+#range-slider4 .noUi-handle {
+  border: 2px solid #3498db;
+  width: 16px;
+  height: 16px;
+  top: -5px;
+  transform: translate(-50%, 0);
+}
+
+/*  спливаючих значень */
+#range-slider1 .noUi-tooltip,
+#range-slider2 .noUi-tooltip,
+#range-slider3 .noUi-tooltip,
+#range-slider4 .noUi-tooltip {
+  padding: 0;
+  top: 16px;
+  font-size: 12px;
+  border: 0;
+}
+
+/* розмір доріжки */
+#range-slider1 .noUi-connect,
+#range-slider2 .noUi-connect,
+#range-slider3 .noUi-connect,
+#range-slider4 .noUi-connect {
+  height: 9px;
+  background-color: #3498db;
+}
+
+#range-slider1 .noUi-handle::before,
+#range-slider1 .noUi-handle::after,
+#range-slider2 .noUi-handle::before,
+#range-slider2 .noUi-handle::after,
+#range-slider3 .noUi-handle::before,
+#range-slider3 .noUi-handle::after,
+#range-slider4 .noUi-handle::before,
+#range-slider4 .noUi-handle::after {
+  display: none;
+}
+
 .img-card {
-  margin: 10px 0 10px;
+  margin: 10px auto 10px;
   border-radius: 5px;
   box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.53);
 }
@@ -1844,6 +1923,14 @@ a.enover:hover {
   font-size: 12px;
   border-radius: 3px;
   background-color: var(--color-white) !important;
+}
+
+.ranges {
+  width: 140px;
+  max-width: 140px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
 }
 
 /*

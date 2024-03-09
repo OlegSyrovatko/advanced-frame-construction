@@ -28,6 +28,10 @@
     />
     <link rel="manifest" href="./site.webmanifest" />
     @include('sweetalert::alert')
+
+    @yield("nouislider")
+
+
 </head>
 <body>
 <script src="/js/app-before.js"></script>
