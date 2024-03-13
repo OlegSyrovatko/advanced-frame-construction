@@ -139,6 +139,78 @@ class HouseController extends Controller
     }
 
 
+    public function houses_query(Request $request)
+    {
+        $mi1 = $request['mi1'];
+        $ma1 = $request['ma1'];
+        $mi2 = $request['mi2'];
+        $ma2 = $request['ma2'];
+        $mi3 = $request['mi3'];
+        $ma3 = $request['ma3'];
+        $mi4 = $request['mi4']*1000;
+        $ma4 = $request['ma4']*1000;
+
+        $houses = DB::table('houses')
+            ->select('id','title', 'area', 'price', 'floors', 'rooms')
+            ->where('area', '>=', $mi1)
+            ->where('area', '<=', $ma1)
+            ->where('rooms', '>=', $mi2)
+            ->where('rooms', '<=', $ma2)
+            ->where('floors', '>=', $mi3)
+            ->where('floors', '<=', $ma3)
+            ->where('price', '>=', $mi4)
+            ->where('price', '<=', $ma4)
+            ->orderBy('price', 'asc')
+            ->get();
+
+        foreach ($houses as $house) {
+            $id = $house->id;
+            $title = $house->title;
+            $area = $house->area;
+            $price = $house->price;
+            $floors = $house->floors;
+            $rooms = $house->rooms;
+
+            $covers = DB::table('house_photos')
+                ->select('photo_path','width')
+                ->where('is_cover', 1)
+                ->where('house_id', $id)
+                ->where(function ($query) {
+                    $query->where('width', 150)
+                        ->orWhere('width', 300);
+                })
+                ->get();
+            $fscover="";
+            $fbcover="";
+            foreach ($covers as $cover) {
+                $photo_path = $cover->photo_path;
+                $width = $cover->width;
+                if($width==150){$fscover=$photo_path;}
+                if($width==300){$fbcover=$photo_path;}
+            }
+
+            echo"<li class=\"card\" ><a href=\"/\"> <b>$title</b>";
+
+            if($covers->count() > 0){
+                echo"<img class=\"img-card\"
+                 srcset=\"/storage/$fscover 1x, /storage/$fbcover 2x\"
+                 sizes=\"(max-width: 600px) 150px, 300px\"
+                 src=\"/storage/$fscover\"
+                 alt=\"$title\">";
+             }
+             else {echo"<p>No cover photos found.</p>";}
+
+            echo"<ul class=\"opt\">
+                    <li>" . __('messages.house-area') . ": $area м2</li>
+                    <li>" . __('messages.rooms') . ": $rooms  </li>
+                    <li>" . __('messages.floors') . ": $floors  </li>
+                    <li> " . __('messages.price') . ": $price " . __('messages.uah') . ".</li>
+                 </ul>
+            </a></li>";
+        }
+
+    }
+
     public function updateHouse(Request $request)
     {
         $contact = new House;

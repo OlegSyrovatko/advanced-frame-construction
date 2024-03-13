@@ -1839,23 +1839,47 @@ a.enover:hover {
 }
 
 .card-ranges {
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
   width: 175px;
   max-width: 175px;
-  padding: 20px 10px 40px;
+  padding: 15px 10px 30px;
   background: var(--color-white);
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-@media (min-width: 1024px) {
+@media (min-width: 730px) {
   .card-ranges {
-    width: 195px;
-    max-width: 195px;
+    width: 700px;
+    max-width: 700px;
+    flex-direction: row;
   }
+}
+
+.ranges {
+  margin: 0 auto;
+  width: 140px;
+  max-width: 140px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+@media (min-width: 730px) {
+  .ranges {
+    flex-direction: row;
+    width: 600px;
+    max-width: 600px;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+  }
+}
+
+.ranges li {
+  width: 100%;
 }
 
 #range-slider1, #range-slider2, #range-slider3, #range-slider4 {
@@ -1925,12 +1949,8 @@ a.enover:hover {
   background-color: var(--color-white) !important;
 }
 
-.ranges {
-  width: 140px;
-  max-width: 140px;
-  display: flex;
-  gap: 30px;
-  flex-direction: column;
+.unhid {
+  display: none;
 }
 
 /*

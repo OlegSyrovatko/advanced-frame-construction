@@ -48,7 +48,7 @@ Route::post('/works-update-order', 'App\Http\Controllers\WorkController@updateOr
 Route::get('houses-adm', function () { return view('houses-adm'); })->name('houses-adm');
 Route::get('houses', function () { return view('houses'); })->name('houses');
 // Route::get('houses-adm/{id}', 'App\Http\Controllers\UserController@showOneMessage')->name("contact-data-one");
-Route::post('/houses-query', 'App\Http\Controllers\HouseController@houses-query');
+Route::post('/houses-query', 'App\Http\Controllers\HouseController@houses_query');
 Route::post('/houses', 'App\Http\Controllers\HouseController@store')->name('houses-store');
 Route::get('houses-adm/{id}/update', 'App\Http\Controllers\WorkController@updateHouse')->name("house-update");
 Route::post('houses-adm/{id}/update', 'App\Http\Controllers\UserController@updateHouseSubmit')->name("house-update-submit");
