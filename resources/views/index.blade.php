@@ -27,4 +27,26 @@
     test test test test test test test test test test test testtest test test test test test test test test test test testtest test test test test test test test test test test testtest test test test test test test test test test test testtest test test test test test test test test test test testtest test test test test test test test test test test test
 
     <br><br><br>    <br><br><br><br><br><br><br><br><br><br>
+
+
+@endsection
+
+@section("modal-window")
+    <script>
+
+        const refs = {
+            openModalBtn: document.querySelector("[data-modal-open]"),
+            closeModalBtn: document.querySelector("[data-modal-close]"),
+            modal: document.querySelector("[data-modal]"),
+        };
+
+        function toggleModal() {
+            refs.modal.classList.toggle("is-hidden");
+        }
+
+        (() => {
+            refs.openModalBtn.addEventListener("click", toggleModal);
+            refs.closeModalBtn.addEventListener("click", toggleModal);
+        })();
+    </script>
 @endsection

@@ -3,10 +3,12 @@
     {{ __('messages.houses') }}
 @endsection
 
+
 @section("nouislider")
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.3/nouislider.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+
 @endsection
 
 @section("content")
@@ -15,8 +17,6 @@
     <section class="section">
         <div class="container">
 
-
-            <br /><br /><br /><br />
             {{view('inc.ranges')}}
             <ul id="houses"> </ul>
         </div>
@@ -53,8 +53,9 @@
         <div class="unhid" id="ma3"><?=$minMaxValues['floors']['max']?></div>
         <div class="unhid" id="mi4"><?=$minMaxValues['price']['min']?></div>
         <div class="unhid" id="ma4"><?=$minMaxValues['price']['max']?></div>
+        <script src="/js/notiflix-loading-aio.js"></script>
         <script>
-
+            Notiflix.Loading.init();
             function houses(mi1,ma1,mi2,ma2,mi3,ma3,mi4,ma4) {
 
                 $.ajaxSetup({
@@ -62,7 +63,7 @@
                         'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
                     }
                 });
-
+                Notiflix.Loading.circle('{{__('messages.loading')}}');
                 var formData = {
                     mi1: mi1,
                     ma1: ma1,
@@ -80,8 +81,14 @@
                     data: formData,
                     cache: false,
                     success: function success(data) {
+                        Notiflix.Loading.remove();
                         document.getElementById("houses").innerHTML = data;
                         renderRanges(mi1,ma1,mi2,ma2,mi3,ma3,mi4,ma4);
+
+                    },
+                    error: function(xhr, status, error) {
+                        Notiflix.Loading.remove();
+                        console.error('Error:', error);
                     }
                 });
 

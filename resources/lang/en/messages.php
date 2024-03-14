@@ -79,4 +79,5 @@ return [
     'price' => 'Price',
     'houses' => 'Catalogue - houses',
     'are' => 'Area',
+    'loading' => 'Loading...',
 ];

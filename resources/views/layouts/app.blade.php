@@ -49,7 +49,7 @@
 {{--@include("inc.footer") --}}
 
 
-
+@yield("modal-window")
 <script src="/js/mobile-menu.js"></script>
 <script src="/js/modal.js"></script>
 <script src="/js/jquery-3.5.1.min.js"></script>
