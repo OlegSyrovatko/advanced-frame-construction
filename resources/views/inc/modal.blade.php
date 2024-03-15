@@ -2,7 +2,7 @@
     <div class="modal">
         <button type="button" class="close-button modal__close" data-modal-close>
             <svg width="11" height="11" class="close-button__image">
-                <use href="./images/icons.svg#close-blank"></use>
+                <use href="/images/icons.svg#close-blank"></use>
             </svg>
         </button>
 
@@ -14,7 +14,7 @@
                 <span class="contact__block">
                     <input class="contact__input" type="text" id="username" required/>
                     <svg class="contact__icon" width="12" height="12">
-                      <use href="./images/icons.svg#icon-username"></use>
+                      <use href="/images/icons.svg#icon-username"></use>
                     </svg>
                   </span>
             </label>
@@ -23,7 +23,7 @@
                 <span class="contact__block">
                     <input class="contact__input" type="tel" id="tel" required/>
                     <svg class="contact__icon" width="13" height="13">
-                      <use href="./images/icons.svg#icon-tel"></use>
+                      <use href="/images/icons.svg#icon-tel"></use>
                     </svg>
                   </span>
             </label>
@@ -32,7 +32,7 @@
                 <span class="contact__block">
                     <input class="contact__input" type="number" id="area" value="0" required/>
                     <svg class="contact__icon" width="13" height="13">
-                      <use href="./images/icons.svg#icon-house"></use>
+                      <use href="/images/icons.svg#icon-house"></use>
                     </svg>
                   </span>
             </label>

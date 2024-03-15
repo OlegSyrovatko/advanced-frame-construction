@@ -189,7 +189,7 @@ class HouseController extends Controller
                 if($width==300){$fbcover=$photo_path;}
             }
 
-            echo"<li class=\"card\" ><a href=\"/\"> <b>$title</b>";
+            echo"<li class=\"card\" ><a href=\"" . route('house', ['id' => $id]) . "\"> <b>$title</b>";
 
             if($covers->count() > 0){
                 echo"<img class=\"img-card\"

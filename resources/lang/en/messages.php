@@ -80,4 +80,9 @@ return [
     'houses' => 'Catalogue - houses',
     'are' => 'Area',
     'loading' => 'Loading...',
+    'price_included' => 'Complete set of the house',
+    'price_noncluded' => 'Not included in the price',
+
+
+
 ];
