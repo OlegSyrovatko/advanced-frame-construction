@@ -30,6 +30,7 @@ return [
     'send' => 'Send',
     'do-house' => 'We will build the house of your dreams',
 	'order' => 'Order a service',
+    'order-h' => 'Order this house',
     'dream' => 'Do you dream of getting housing quickly and inexpensively?',
     'do-dream' => 'AFC will build a comfortable modular house for permanent or temporary residence, which is easy to install and move to another place as needed.',
     'advantages-lot' => 'Modular houses have a number of ADVANTAGES:',

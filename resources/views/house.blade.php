@@ -92,6 +92,7 @@ $covers = DB::table('house_photos')
                         echo"</ul>";
                     }
                 @endphp
+
                 <h2>{{__('messages.price_included')}}</h2>
                 {!! $works !!}
                 <h2>{{__('messages.price_noncluded')}}</h2>
@@ -105,5 +106,69 @@ $covers = DB::table('house_photos')
         </div>
     </section>
 
+    <button type="button" class="order-button" data-modal-open>{{__('messages.order-h')}}</button>
+    <br /><br /><br /><br />
 
 @endsection
+@section("modal-window")
+    <script>
+
+        const refs = {
+            openModalBtn: document.querySelector("[data-modal-open]"),
+            closeModalBtn: document.querySelector("[data-modal-close]"),
+            modal: document.querySelector("[data-modal]"),
+        };
+
+        function toggleModal() {
+            refs.modal.classList.toggle("is-hidden");
+        }
+
+        (() => {
+            refs.openModalBtn.addEventListener("click", toggleModal);
+            refs.closeModalBtn.addEventListener("click", toggleModal);
+        })();
+    </script>
+@endsection
+<div class="backdrop is-hidden" data-modal>
+    <div class="modal">
+        <button type="button" class="close-button modal__close" data-modal-close>
+            <svg width="11" height="11" class="close-button__image">
+                <use href="/images/icons.svg#close-blank"></use>
+            </svg>
+        </button>
+
+        <div class="contact">
+            <h2 class="contact__header">{{__('messages.recall')}}</h2>
+
+            <label class="contact__label">
+                <span class="contact__title">{{__('messages.name')}}</span>
+                <span class="contact__block">
+                    <input class="contact__input" type="text" id="username" required/>
+                    <svg class="contact__icon" width="12" height="12">
+                      <use href="/images/icons.svg#icon-username"></use>
+                    </svg>
+                  </span>
+            </label>
+            <label class="contact__label">
+                <span class="contact__title">{{__('messages.tel')}}</span>
+                <span class="contact__block">
+                    <input class="contact__input" type="tel" id="tel" required/>
+                    <svg class="contact__icon" width="13" height="13">
+                      <use href="/images/icons.svg#icon-tel"></use>
+                    </svg>
+                  </span>
+            </label>
+
+            <input  type="hidden" id="link" value="{{ Request::url() }}"/>
+
+            <label class="contact__label">
+                <span class="contact__title">{{__('messages.comment')}}</span>
+                <textarea class="contact__input contact__textarea" id="comment" placeholder="{{__('messages.e-text')}}"></textarea>
+            </label>
+            <button class="order-button" onclick="order_add()">{{__('messages.send')}}</button>
+
+
+        </div>
+    </div>
+</div>
+

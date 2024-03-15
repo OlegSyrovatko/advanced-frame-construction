@@ -31,6 +31,7 @@ Route::get('advantages/en', function () {session(['my_locale' => 'en']);App::set
 
 Route::get('admafc', function () {return view('adm'); });
 Route::get('contact-list', function () {return view('contact-list'); });
+Route::get('order-list', function () {return view('order-list'); });
 Route::get('projects-adm/{category?}/{page?}', function ($category = 'all', $page = 1) {
     return view('projects-adm')->with(['dir' => $category, 'page' => $page]);
 });
@@ -83,6 +84,9 @@ Route::group(['middleware'=>'language'],function ()
 
     Route::post('subscribe', 'App\Http\Controllers\ContactController@subscribe');
     Route::post('delete_contact', 'App\Http\Controllers\ContactController@delete_contact');
+
+    Route::post('order', 'App\Http\Controllers\OrderController@subscribe');
+    Route::post('delete_order', 'App\Http\Controllers\OrderController@delete_order');
 
     Route::get('/projects', function () {
         return view('projects')->with(['dir' =>  'all', 'page' => 1]);

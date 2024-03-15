@@ -64,6 +64,70 @@ function deleteContact(id) {
             document.getElementById(id).innerHTML = data;
         }
     });
+}
+
+function order_add() {
+
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')}
+    });
+    var username = document.getElementById('username').value;
+    var tel = document.getElementById('tel').value;
+    var link = document.getElementById('link').value;
+    var comment = document.getElementById('comment').value;
+
+    var formData = {
+        username: username, tel: tel, 'link': link, 'comment': comment
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/order',
+        data: formData,
+        cache: false,
+        success: function(data) {
+            toggleModal();
+            Swal.fire({
+                icon: 'success',
+                title: data.title,
+                text: data.message,
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        },
+        error: function(response) {
+            const errorData = response.responseJSON;
+
+            Swal.fire({
+                icon: 'error',
+                title: errorData.title,
+                text: errorData.error,
+            });
+
+            console.error('Error:', errorData);
+        }
+    });
+}
+
+function deleteOrder(id) {
+
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')}
+    });
+    const idpwd = "pwd" + id;
+    var pwd = document.getElementById(idpwd).value;
 
 
+    var formData = {
+        id: id, pwd: pwd
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/delete_order',
+        data: formData,
+        cache: false,
+        success: function(data) {
+            document.getElementById(id).innerHTML = data;
+        }
+    });
 }
