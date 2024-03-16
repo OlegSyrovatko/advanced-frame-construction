@@ -65,7 +65,7 @@ class OrderController extends Controller
 
     protected function sendEmailOrder($username, $tel, $link, $comment)
     {
-        Mail::to("sirov@ukr.net")->send(new EmailOrder($username, $tel, $link, $comment));
+        Mail::to("advanced.frame.construction@gmail.com")->send(new EmailOrder($username, $tel, $link, $comment));
     }
     public function delete_order(Request $request)
     {

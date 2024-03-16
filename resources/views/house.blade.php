@@ -55,42 +55,47 @@ $covers = DB::table('house_photos')
                 </ul>
                 @php
                     $photos = DB::table('house_photos')
-                        ->select('photo_path','width')
-                        ->where('is_cover', '!=', 1)
-                        ->where('house_id', $id)
-                        ->orderby('id', 'asc')
-                        ->get();
+                       ->select('photo_path', 'width')
+                       ->where('is_cover', '!=', 1)
+                       ->where('house_id', $id)
+                       ->orderBy('id', 'asc')
+                       ->get();
 
-                    if($photos->count() > 0){
-                        echo"<ul class=\"photos\">";
-                        $n=0;
-                        foreach ($photos as $photo) {
-                            if($n==0){
-                                $fscover="";
-                                $fbcover="";
-                                $big="";
-                            }
-                            $photo_path = $photo->photo_path;
-                            $width = $photo->width;
-                            if($width==150){$fscover=$photo_path;}
-                            else if($width==300){$fbcover=$photo_path;}
-                            else {$big = $photo_path;}
-                            if($n==2){
+                   $sorted_photos = [
+                       '150' => [],
+                       '300' => [],
+                       'other' => []
+                   ];
+
+                   foreach ($photos as $photo) {
+                       $photo_path = $photo->photo_path;
+                       $width = $photo->width;
+
+                       if ($width == 150) {
+                           $sorted_photos['150'][] = $photo_path;
+                       } elseif ($width == 300) {
+                           $sorted_photos['300'][] = $photo_path;
+                       } else {
+                           $sorted_photos['other'][] = $photo_path;
+                       }
+                   }
+
+                   echo "<ul class=\"photos\">";
+                   foreach ($sorted_photos['150'] as $key => $photo) {
+                       $fscover = $photo;
+                       $fbcover = isset($sorted_photos['300'][$key]) ? $sorted_photos['300'][$key] : '';
+                       $big = isset($sorted_photos['other'][$key]) ? $sorted_photos['other'][$key] : '';
+
+                       echo "<li><a href=\"/storage/$big\" data-lightbox=\"gallery\" style=\"display: block; width: 125px;\">
+                           <img class=\"img-card150\" width=\"125\" height=\"auto\"
+                           srcset=\"/storage/$fscover 1x, /storage/$fbcover 2x\"
+                           sizes=\"(max-width: 600px) 150px, 300px\"
+                           src=\"/storage/$fscover\"
+                           alt=\"$title \"></a><li>";
+                   }
+                   echo "</ul>";
 
 
-                                 echo"<li><a href=\"/storage/$big\" data-lightbox=\"gallery\" style=\"display: block; width: 125px;\">
-                                    <img class=\"img-card150\" width=\"125\" height=\"auto\"
-                                 srcset=\"/storage/$fscover 1x, /storage/$fbcover 2x\"
-                                 sizes=\"(max-width: 600px) 150px, 300px\"
-                                 src=\"/storage/$fscover\"
-                                 alt=\"$title \"></a><li>";
-                                 $n=0;
-                            }
-
-                            $n++;
-                        }
-                        echo"</ul>";
-                    }
                 @endphp
 
                 <h2>{{__('messages.price_included')}}</h2>

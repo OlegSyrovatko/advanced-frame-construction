@@ -207,7 +207,6 @@
                 const mi4 = parseFloat(document.getElementById("mi4").innerHTML);
                 const ma4 = parseFloat(document.getElementById("ma4").innerHTML);
 
-
                 houses(mi1,ma1,mi2,ma2,mi3,ma3,mi4,ma4);
             }
             window.onload = function() {

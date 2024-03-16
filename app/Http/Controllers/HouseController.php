@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use App\Models\House;
 use App\Models\HousePhoto;
@@ -211,9 +212,69 @@ class HouseController extends Controller
 
     }
 
-    public function updateHouse(Request $request)
+    public function update(Request $request)
     {
-        $contact = new House;
-        return view('update-house', ['data' => $contact->find($id)]);
+        $id = $request['id'];
+
+        $title = $request['title'] ?? "";
+        $description = $request['description'] ?? "";
+        $area = $request['area'] ?? 0;
+        $rooms = $request['rooms'] ?? 1;
+        $floors = $request['floors'] ?? 1;
+        $price = $request['price'] ?? 0;
+        $works = $request['works'] ?? "";
+        $other_works = $request['other_works'] ?? "";
+
+
+        $pwd = $request['pwd'] ?? "";
+
+        if($pwd == 25 && $id>0){
+
+            House::where('id', $id)->update([
+                'title' => $title,
+                'description' => $description,
+                'area' => $area,
+                'rooms' => $rooms,
+                'floors' => $floors,
+                'price' => $price,
+                'works' => $works,
+                'other_works' => $other_works,
+            ]);
+            return "Дані оновлені <meta http-equiv=\"refresh\" content=\"1; url=/houses-adm/$id\">";
+        }
     }
+
+
+    public function delete(Request $request)
+    {
+        $id = $request['id'] ?? "";
+        $pwd = $request['pwd'] ?? "";
+
+        if($pwd == 25){
+            $house = House::find($id);
+            if ($house) {
+                // Видалення фотографій, пов'язаних з будинком
+                foreach ($house->photos as $photo) {
+                    // Видалення оригінального зображення
+                    Storage::disk('public')->delete($photo->photo_path);
+                    // Видалення зображень різних розмірів (якщо вони існують)
+                    $prefix = $photo->is_cover ? 'cover_' : 'other_';
+                    $widths = [300, 150]; // Ширина зображень, які треба видалити
+                    foreach ($widths as $width) {
+                        $resizedPath = 'house_photos/' . $prefix . $width . '_' . $photo->id . '.' . pathinfo($photo->photo_path, PATHINFO_EXTENSION);
+                        Storage::disk('public')->delete($resizedPath);
+                    }
+                    // Видалення запису про фотографію з бази даних
+                    $photo->delete();
+                }
+
+                // Видалення самого будинку
+                $house->delete();
+                return "Будинок з id {$id} був успішно видалений. <meta http-equiv=\"refresh\" content=\"1; url =/houses-adm\"> ";
+            } else {
+                return "Будинок з id $id не знайдений.";
+            }
+        }
+    }
+
 }

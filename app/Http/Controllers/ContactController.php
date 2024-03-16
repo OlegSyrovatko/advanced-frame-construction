@@ -64,7 +64,7 @@ class ContactController extends Controller
 
     protected function sendEmailNotification($username, $tel, $area, $comment)
     {
-        Mail::to("sirov@ukr.net")->send(new EmailNotification($username, $tel, $area, $comment));
+        Mail::to("advanced.frame.construction@gmail.com")->send(new EmailNotification($username, $tel, $area, $comment));
     }
     public function delete_contact(Request $request)
     {
