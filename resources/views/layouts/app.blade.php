@@ -46,7 +46,7 @@
 @include("inc.modal")
 
 
-{{--@include("inc.footer") --}}
+@include("inc.footer")
 
 
 @yield("modal-window")

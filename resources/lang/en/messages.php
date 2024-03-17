@@ -18,6 +18,7 @@ return [
 	'advantages' => 'Our advantages',
     'catalogue' => 'Catalogue',
 	'past-projects' => 'Past projects',
+    'projects' => 'Projects',
     'contacts' => 'Contacts',
     'questionnaire' => 'Questionnaire',
 	'icon_insta' => 'Instagram icon',
@@ -83,7 +84,7 @@ return [
     'loading' => 'Loading...',
     'price_included' => 'Complete set of the house',
     'price_noncluded' => 'Not included in the price',
-
-
+    'main' => 'Main',
+    'lan' => 'en',
 
 ];

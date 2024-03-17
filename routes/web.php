@@ -47,16 +47,8 @@ Route::post('/works-update-order', 'App\Http\Controllers\WorkController@updateOr
 
 
 Route::get('houses-adm', function () { return view('houses-adm'); })->name('houses-adm');
-Route::get('houses', function () { return view('houses'); })->name('houses');
-Route::post('/houses', 'App\Http\Controllers\HouseController@store')->name('houses-store');
-
-Route::post('/houses-query', 'App\Http\Controllers\HouseController@houses_query');
-Route::get('/houses/{id}', function ($id) { return view('house', ['id' => $id]); })->name("house");
 Route::get('/houses-adm/{id}', function ($id) { return view('house-adm', ['id' => $id]); })->name("house-adm");
 Route::post('houses-adm-edit', 'App\Http\Controllers\HouseController@update');
-
-// Route::get('houses-adm/{id}/delete', 'App\Http\Controllers\UserController@deleteHouse')->name("house-delete");
-
 Route::post('houses-adm-delete', 'App\Http\Controllers\HouseController@delete');
 
 
@@ -89,7 +81,11 @@ Route::group(['middleware'=>'language'],function ()
     Route::get('projects/{category?}/{page?}', function ($category = 'all', $page = 1) {
         return view('projects')->with(['dir' => $category, 'page' => $page]);
     });
+    Route::get('houses', function () { return view('houses'); })->name('houses');
+    Route::post('/houses', 'App\Http\Controllers\HouseController@store')->name('houses-store');
 
+    Route::post('/houses-query', 'App\Http\Controllers\HouseController@houses_query');
+    Route::get('/houses/{id}', function ($id) { return view('house', ['id' => $id]); })->name("house");
 
 });
 

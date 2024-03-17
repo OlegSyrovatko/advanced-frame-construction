@@ -63,7 +63,7 @@
                                 >
                                     <use href="/images/icons.svg#icon-envelop"></use>
                                 </svg>
-                                <span class="contacts__text">oleh92makarenko@gmail.com</span>
+                                <span class="contacts__text">advanced.frame.construction@gmail.com</span>
                             </a>
                         </p>
                     </li>

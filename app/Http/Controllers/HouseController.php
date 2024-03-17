@@ -13,12 +13,6 @@ use Illuminate\Support\Facades\DB;
 
 class HouseController extends Controller
 {
-    public function create()
-    {
-        // return view('houses');
-        return view('works');
-    }
-
     public function store(Request $request)
     {
         $data['title'] = $request->input('title', 'default_title');
