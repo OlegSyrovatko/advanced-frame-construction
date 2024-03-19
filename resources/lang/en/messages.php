@@ -86,5 +86,7 @@ return [
     'price_noncluded' => 'Not included in the price',
     'main' => 'Main',
     'lan' => 'en',
+    'que-tit' => 'Survey of the customer',
+    'que-desc' => 'In order for us to better understand each other and take into account all your wishes, we offer you to complete a small survey',
 
 ];

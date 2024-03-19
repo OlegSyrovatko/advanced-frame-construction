@@ -131,3 +131,47 @@ function deleteOrder(id) {
         }
     });
 }
+
+function q_add() {
+
+    $.ajaxSetup({
+        headers: {'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')}
+    });
+    var username = document.getElementById('username').value;
+    var tel = document.getElementById('tel').value;
+    var option = document.querySelector('input[name="option"]:checked').value;
+    var new_option = document.getElementById('new_option').value;
+    var formData = {
+        username: username, tel: tel, option: option, new_option: new_option
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/question',
+        data: formData,
+        cache: false,
+        success: function(data) {
+
+            Swal.fire({
+                icon: 'success',
+                title: data.title,
+                text: data.message,
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+        },
+        error: function(response) {
+            const errorData = response.responseJSON;
+
+            Swal.fire({
+                icon: 'error',
+                title: errorData.title,
+                text: errorData.error,
+            });
+
+            console.error('Error:', errorData);
+        }
+    });
+
+
+}

@@ -87,6 +87,10 @@ Route::group(['middleware'=>'language'],function ()
     Route::post('/houses-query', 'App\Http\Controllers\HouseController@houses_query');
     Route::get('/houses/{id}', function ($id) { return view('house', ['id' => $id]); })->name("house");
 
+    Route::get('/question', function () {
+        return view('question');
+    });
+    Route::post('/question', 'App\Http\Controllers\QuestionController@subscribe');
 });
 
 
@@ -95,8 +99,6 @@ Route::get('/catalogue', function () {
     return view('catalogue');
 });
 
-Route::get('/question', function () {
-    return view('question');
-});
+
 
 */
