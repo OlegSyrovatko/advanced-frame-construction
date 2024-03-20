@@ -88,5 +88,9 @@ return [
     'lan' => 'en',
     'que-tit' => 'Survey of the customer',
     'que-desc' => 'In order for us to better understand each other and take into account all your wishes, we offer you to complete a small survey',
+    'que1' => 'What type of building is needed?',
+    'que1-1' => 'house',
+    'que1-2' => 'sauna',
+    'other' => 'Other',
 
 ];
