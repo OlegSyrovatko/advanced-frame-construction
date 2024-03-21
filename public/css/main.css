@@ -1293,6 +1293,21 @@ summary {
 .question__block {
   position: relative;
 }
+.question__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background-color: white;
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+}
+.question__title-item {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+}
 .question__input {
   width: 100%;
   height: 40px;
@@ -1306,6 +1321,21 @@ summary {
   transition-timing-function: var(--timing-function);
 }
 .question__label:focus-within .question__input {
+  border-color: var(--color-primary-dark);
+}
+.question__input-item {
+  width: 100%;
+  height: 40px;
+  border: 1px solid rgba(33, 33, 33, 0.2);
+  border-radius: 4px;
+  outline: 0;
+  margin-top: 4px;
+  padding: 14px;
+  transition-property: border-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--timing-function);
+}
+.question__input-item:focus {
   border-color: var(--color-primary-dark);
 }
 .question__textarea {
