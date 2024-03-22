@@ -91,6 +91,8 @@ Route::group(['middleware'=>'language'],function ()
         return view('question');
     });
     Route::post('/question', 'App\Http\Controllers\QuestionController@subscribe');
+    Route::get('question-list', function () {return view('question-list'); });
+    Route::post('delete_queston', 'App\Http\Controllers\QuestionController@delete_q');
 });
 
 
