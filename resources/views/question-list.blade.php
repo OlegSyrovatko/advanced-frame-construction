@@ -26,7 +26,7 @@
                     <h2 class="advantage-title">{{$All->username}}</h2>
                     <h3 class="advantage-title">{{$All->tel}}</h3>
                     <span class="advantage-description">{!! $All->data !!}</span>
-
+                    <br>
                     {{$All->created_at}}<br><br><br>
                     <input type=text id="pwd{{$All->id}}">
                     <a onclick=deleteQueston('{{$All->id}}')>Видалити</a><br>

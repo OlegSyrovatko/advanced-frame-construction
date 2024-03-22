@@ -1,7 +1,6 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteRule ^storage/app/(.*)$ public/storage/app/$1 [L]
-    RewriteRule ^storage/framework/(.*)$ public/storage/framework/$1 [L]
-    RewriteRule ^storage/logs/(.*)$ public/storage/logs/$1 [L]
-    RewriteRule ^storage/house_photos/(.*)$ public/storage/house_photos/$1 [L]
-</IfModule>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule . index.php [L]
+
