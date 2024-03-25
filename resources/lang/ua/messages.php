@@ -16,6 +16,7 @@ return [
     'home' => 'Головна',
 	'about-us' => 'Про нас',
 	'advantages' => 'Наші переваги',
+    'catalog' => 'Каталог',
     'catalogue' => 'Каталог будинків',
     'past-projects' => 'Інші проєкти',
     'projects' => 'Проєкти',

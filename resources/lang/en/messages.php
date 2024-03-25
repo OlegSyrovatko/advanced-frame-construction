@@ -16,6 +16,7 @@ return [
     'home' => 'Home',
 	'about-us' => 'About us',
 	'advantages' => 'Our advantages',
+    'catalog' => 'Catalog',
     'catalogue' => 'Catalog of houses',
 	'past-projects' => 'Other projects',
     'projects' => 'Projects',

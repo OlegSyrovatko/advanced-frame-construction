@@ -7,7 +7,7 @@
                     <a class="link footer__link" href="/">{{__('messages.main')}}</a>
                 </li>
                 <li class="footer__item">
-                    <a class="link footer__link" href="/houses">{{__('messages.catalogue')}}</a>
+                    <a class="link footer__link" href="/houses">{{__('messages.catalog')}}</a>
                 </li>
                 <li class="footer__item">
                     <a class="link footer__link" href="/projects">{{__('messages.projects')}}</a>
