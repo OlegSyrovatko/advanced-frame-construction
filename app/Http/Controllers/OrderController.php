@@ -54,10 +54,10 @@ class OrderController extends Controller
         $this->sendEmailOrder($username, $tel, $link, $comment);
 
         $title = "Успіх";
-        $message = 'Дані відправлені';
+        $message = 'Дані відправлені. ' . __('messages.recalladm');
         if ($lan == "en") {
             $title = "Success";
-            $message = 'Data sent';
+            $message = 'Data sent. ' . __('messages.recalladm');
         }
 
         return response()->json(['message' => $message, 'title' => $title], 200);

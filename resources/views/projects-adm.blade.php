@@ -66,13 +66,6 @@
                         </a>
                     </li>
                 @endif
-                @if($dir == "all" || $dir == "cabins")
-                    <li class="project-card">
-                        <a href="/projects-adm/cabins">
-                            <h2 class="project-title-adm">{{ __('messages.t5') }}</h2>
-                        </a>
-                    </li>
-                @endif
                 @if($dir == "all" || $dir == "playgrounds")
                     <li class="project-card">
                         <a href="/projects-adm/playgrounds">
@@ -141,7 +134,6 @@
                                 <option value="relax" @php if($dirid == "relax")echo "selected" @endphp>Альтанки</option>
                                 <option value="furniture" @php if($dirid == "furniture")echo "selected" @endphp>Меблі, фурнітура</option>
                                 <option value="gardens" @php if($dirid == "gardens")echo "selected" @endphp>Качелі/Воль'єри</option>
-                                <option value="cabins" @php if($dirid == "cabins")echo "selected" @endphp>Туалети</option>
                                 <option value="playgrounds" @php if($dirid == "playgrounds")echo "selected" @endphp>Дит. майданчики</option>
                             </select>
 

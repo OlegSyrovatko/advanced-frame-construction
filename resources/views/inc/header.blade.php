@@ -72,7 +72,7 @@
                 </li>
                 <li>
                     <a
-                        href="https://www.instagram.com/p/C3psnoNtVyn/"
+                        href="https://www.instagram.com/advanced_frame_construction/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -116,7 +116,7 @@
                     </li>
                     <li style="width: 100%; ">
                         <a
-                            href="https://www.instagram.com/p/C3psnoNtVyn/"
+                            href="https://www.instagram.com/advanced_frame_construction/"
                             target="_blank"
                             rel="noopener noreferrer"
                         >

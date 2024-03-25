@@ -25,7 +25,7 @@ function contact_add() {
                 title: data.title,
                 text: data.message,
                 showConfirmButton: false,
-                timer: 3000
+                timer: 5000
             });
 
         },
@@ -91,7 +91,7 @@ function order_add() {
                 title: data.title,
                 text: data.message,
                 showConfirmButton: false,
-                timer: 3000
+                timer: 5000
             });
 
         },
@@ -257,7 +257,7 @@ function q_add() {
                 title: data.title,
                 text: data.message,
                 showConfirmButton: false,
-                timer: 3000
+                timer: 5000
             });
 
         },

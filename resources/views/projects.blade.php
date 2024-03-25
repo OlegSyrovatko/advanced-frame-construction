@@ -44,14 +44,7 @@
                         </a>
                     </li>
                 @endif
-                @if($dir == "all" || $dir == "cabins")
-                    <li class="project-card">
-                        <a href="/projects/cabins">
-                            <h2 class="project-title">{{ __('messages.t5') }}</h2>
-                            <span class="project-description">{{ __('messages.t5-e') }}</span>
-                        </a>
-                    </li>
-                @endif
+
                 @if($dir == "all" || $dir == "playgrounds")
                     <li class="project-card">
                         <a href="/projects/playgrounds">

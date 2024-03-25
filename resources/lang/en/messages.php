@@ -16,8 +16,8 @@ return [
     'home' => 'Home',
 	'about-us' => 'About us',
 	'advantages' => 'Our advantages',
-    'catalogue' => 'Catalogue',
-	'past-projects' => 'Past projects',
+    'catalogue' => 'Catalog of houses',
+	'past-projects' => 'Other projects',
     'projects' => 'Projects',
     'contacts' => 'Contacts',
     'questionnaire' => 'Questionnaire',
@@ -57,7 +57,7 @@ return [
     'address' => 'Address',
     'address-e' => 'St. Shevchenko, 9, v. Khotynivka, Nizhynskyi district, Chernihiv region',
     'proj-head' => 'Here you will find overviews and descriptions of the most interesting works. We specialize in crafting modular timber frame buildings, gazebos, furniture, pergolas, toilets, aviaries, swings, and fences. Our projects combine quality, aesthetics, and functionality.',
-    't1' => 'Modular Timber Frame Buildings',
+    't1' => 'Modular Frame Buildings',
     't1-e' => 'Our team has created a series of unparalleled modular timber frame buildings that impress with their stability and stylized design. Each project is tailored to the client\'s needs and stands out for its use of the finest environmentally friendly materials.',
     't2' => 'Gazebos',
     't2-e' => 'Our gazebos are the perfect places to relax and enjoy nature. Their high-quality construction and aesthetic design have made them popular among our clients.',
@@ -174,6 +174,6 @@ return [
     'que20-1' => 'yes',
     'que20-2' => 'no',
     'que21' => 'Additional wishes and questions',
-
+    'recalladm' => 'Our manager will contact you shortly',
 
 ];

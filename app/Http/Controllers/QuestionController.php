@@ -202,10 +202,10 @@ class QuestionController extends Controller
         $this->sendEmailQuestion($username, $tel, $datalist);
 
         $title = "Успіх";
-        $message = 'Дані відправлені';
+        $message = 'Дані відправлені. ' . __('messages.recalladm');
         if ($lan == "en") {
             $title = "Success";
-            $message = 'Data sent';
+            $message = 'Data sent. ' . __('messages.recalladm');
         }
 
         return response()->json(['message' => $message, 'title' => $title], 200);

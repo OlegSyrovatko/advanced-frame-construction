@@ -53,10 +53,10 @@ class ContactController extends Controller
         $this->sendEmailNotification($username, $tel, $area, $comment);
 
         $title = "Успіх";
-        $message = 'Дані відправлені';
+        $message = 'Дані відправлені. ' . __('messages.recalladm');
         if ($lan == "en") {
             $title = "Success";
-            $message = 'Data sent';
+            $message = 'Data sent. ' . __('messages.recalladm');
         }
 
         return response()->json(['message' => $message, 'title' => $title], 200);

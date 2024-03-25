@@ -23,7 +23,7 @@
                 <li class="footer-social__item">
                     <a
                         class="link footer-social__link"
-                        href="https://www.instagram.com/p/C3psnoNtVyn/"
+                        href="https://www.instagram.com/advanced_frame_construction/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
